@@ -59,7 +59,22 @@ namespace cherrydev
 
         public DialogExternalFunctionsHandler ExternalFunctionsHandler { get; private set; }
 
-        private void Awake() => ExternalFunctionsHandler = new DialogExternalFunctionsHandler();
+        private void Awake()
+        {
+            ExternalFunctionsHandler = new DialogExternalFunctionsHandler();
+
+            if (Instance != null)
+            {
+                Destroy(Instance);
+            }
+            
+            Instance = this;
+        }
+        
+
+        public static DialogBehaviour Instance;
+
+
 
         private void OnEnable()
         {
