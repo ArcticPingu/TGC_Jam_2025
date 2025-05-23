@@ -9,4 +9,5 @@ public class ClassicDialog : Interacteble
     {
         DialogBehaviour.Instance.StartDialog(dialog);
     }
+
 }

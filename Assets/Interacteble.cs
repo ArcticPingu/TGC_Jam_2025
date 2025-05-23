@@ -9,8 +9,6 @@ public abstract class Interacteble : MonoBehaviour
         {
             item.localDistantSortedObjects.Add(this);
         }
-
-        gameObject.SetActive(false);
     }
 
     void OnDestroy()
@@ -22,4 +20,43 @@ public abstract class Interacteble : MonoBehaviour
     }
 
     public abstract void Interact();
+
+
+    private bool _hidden;
+    public bool Hidden
+    {
+        get => _hidden;
+        set
+        {
+            if (_hidden != value)
+            {
+                _hidden = value;
+                if (!_hidden)
+                {
+                    Show();
+                }
+                else
+                {
+                    Hide();
+                }
+            }
+        }
+    }
+
+    public float animationDuration = 0.1f;
+    public void Show()
+    {
+        // Pop in with a bounce
+        LeanTween.scale(gameObject, Vector3.one, animationDuration)
+            .setEase(LeanTweenType.easeOutBack);
+    }
+
+    public void Hide()
+    {
+        // Smoothly shrink out
+        LeanTween.scale(gameObject, Vector3.zero, animationDuration)
+            .setEase(LeanTweenType.easeInBack);
+    }
+
+
 }

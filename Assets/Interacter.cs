@@ -5,6 +5,7 @@ public class Interacter : MonoBehaviour
 {
 
     public List<Interacteble> localDistantSortedObjects = new();
+    private float reachDistance = 2.5f;
     
     void Start()
     {
@@ -14,7 +15,7 @@ public class Interacter : MonoBehaviour
     {
         Sort();
 
-        if (localDistantSortedObjects.Count > 0 && Vector3.Distance(localDistantSortedObjects[0].transform.position, transform.position) < 3)
+        if (localDistantSortedObjects.Count > 0 && Vector3.Distance(localDistantSortedObjects[0].transform.position, transform.position) < reachDistance)
         {
             localDistantSortedObjects[0].Interact();
         }
@@ -27,13 +28,13 @@ public class Interacter : MonoBehaviour
 
         for (int i = 0; i < localDistantSortedObjects.Count; i++)
         {
-            if (Vector3.Distance(localDistantSortedObjects[i].transform.position, transform.position) < 3)
+            if (Vector3.Distance(localDistantSortedObjects[i].transform.position, transform.position) < reachDistance)
             {
-                localDistantSortedObjects[i].gameObject.SetActive(true);
+                localDistantSortedObjects[i].Hidden = false;
             }
             else
             {
-                localDistantSortedObjects[i].gameObject.SetActive(false);
+                localDistantSortedObjects[i].Hidden = true;
             }
             
         }
