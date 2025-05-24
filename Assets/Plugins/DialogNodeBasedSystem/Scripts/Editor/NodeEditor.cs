@@ -243,7 +243,7 @@ namespace cherrydev
                     continue;
 
                 if (!_currentNodeGraph.NodesList.Contains(nodeAsset))
-                    DestroyImmediate(nodeAsset);
+                    DestroyImmediate(nodeAsset, true);
             }
         }
 

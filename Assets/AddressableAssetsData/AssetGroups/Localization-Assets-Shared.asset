@@ -14,13 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_GroupName: Localization-Assets-Shared
   m_GUID: 6d0ea3b5423661c42bde6d802349a362
-  m_SerializeEntries:
-  - m_GUID: b0b4f013d92a24643a998f8bffdd3a64
-    m_Address: Assets/Plugins/DialogNodeBasedSystem/Demo/Localization/DemoNodeGraph/DemoNodeGraph
-      Shared Data.asset
-    m_ReadOnly: 1
-    m_SerializedLabels: []
-    FlaggedDuringContentUpdateRestriction: 0
+  m_SerializeEntries: []
   m_ReadOnly: 1
   m_Settings: {fileID: 11400000, guid: 9668fd09fee74df408370b2a29a9f66c, type: 2}
   m_SchemaSet:

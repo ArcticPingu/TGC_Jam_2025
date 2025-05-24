@@ -14,13 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_GroupName: Localization-String-Tables-German (Germany) (de-DE)
   m_GUID: ebb7f3bc84d27eb45a061bc0698513a3
-  m_SerializeEntries:
-  - m_GUID: 8d5b148ffb1cc4d48b09dae2c752949d
-    m_Address: DemoNodeGraph_de-DE
-    m_ReadOnly: 1
-    m_SerializedLabels:
-    - Locale-de-DE
-    FlaggedDuringContentUpdateRestriction: 0
+  m_SerializeEntries: []
   m_ReadOnly: 1
   m_Settings: {fileID: 11400000, guid: 9668fd09fee74df408370b2a29a9f66c, type: 2}
   m_SchemaSet:
