@@ -6,7 +6,8 @@ public class DayNightCycle : MonoBehaviour
 
     [Header("Time Settings")]
     public float time; // Normalized time (0 to 1)
-    public float dayDuration = 60f; // How many seconds a full day lasts
+    public float targetTime;
+    public float speed = 1;
 
     [Header("Sun Settings")]
     public Light sunLight;
@@ -25,7 +26,10 @@ public class DayNightCycle : MonoBehaviour
     void Update()
     {
         // Update time from 0 to 1
-        time += Time.deltaTime / dayDuration;
+        targetTime = 1 - (GameManager.Instance.currentActionPoints * (1f / GameManager.Instance.maxActionPoints) * 0.4f) - 0.3f;
+
+        time = Mathf.Lerp(time, targetTime, Time.deltaTime * speed);
+
         if (time > 1f) time = 0f;
 
         // Rotate the sun

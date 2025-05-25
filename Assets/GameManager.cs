@@ -13,15 +13,16 @@ public class GameManager : MonoBehaviour
     public Transform player;
     public AudioClip currentVoice;
     public AudioClip pVoice;
-
+    public int maxActionPoints;
+    public int currentActionPoints;
     public AudioSource source;
 
 
 
     void Awake()
     {
-        
-        if(Instance == null)
+
+        if (Instance == null)
         {
             DontDestroyOnLoad(gameObject);
             Instance = this;
@@ -32,7 +33,7 @@ public class GameManager : MonoBehaviour
         }
 
         keys.Add("default");
-        
+
         GameObject.Find("Player").transform.position = spawn;
 
         SceneManager.sceneLoaded += changeScene;
@@ -41,12 +42,12 @@ public class GameManager : MonoBehaviour
     private void changeScene(Scene arg0, LoadSceneMode arg1)
     {
         GameObject.Find("Player").transform.position = spawn;
-        Debug.Log(GameObject.Find("Player").transform.position );
+        Debug.Log(GameObject.Find("Player").transform.position);
     }
 
     public bool checkReq(string req)
     {
-        if(req == "" || req == null)
+        if (req == "" || req == null)
         {
             return true;
         }
@@ -54,7 +55,7 @@ public class GameManager : MonoBehaviour
         {
             Debug.Log(req[0]);
 
-            if(req[0] == '-')
+            if (req[0] == '-')
             {
                 Debug.Log(req.Split('-')[1]);
                 return !keys.Contains(req.Split('-')[1]);
@@ -63,7 +64,12 @@ public class GameManager : MonoBehaviour
             {
                 return keys.Contains(req);
             }
-            
+
         }
+    }
+
+    public void SpendPoint(int amount)
+    {
+        currentActionPoints -= amount;
     }
 }
