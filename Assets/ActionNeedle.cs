@@ -2,9 +2,11 @@ using UnityEngine;
 
 public class ActionNeedle : MonoBehaviour
 {
+    [SerializeField] private float speed;
+
     void Update()
     {
-        Debug.Log(Mathf.Lerp(-20, -340, GameManager.Instance.currentActionPoints * (1f / GameManager.Instance.maxActionPoints)));
-        transform.localPosition = new Vector2(-10.5f, Mathf.Lerp(-158, 158, GameManager.Instance.currentActionPoints * (1f / GameManager.Instance.maxActionPoints)));
+        float target = Mathf.Lerp(-158, 158, GameManager.Instance.currentActionPoints * (1f / GameManager.Instance.maxActionPoints));
+        transform.localPosition = new Vector2(-10.5f, Mathf.Lerp(transform.localPosition.y, target, Time.deltaTime * speed));
     }
 }
