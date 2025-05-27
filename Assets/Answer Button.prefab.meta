@@ -1,14 +1,7 @@
 fileFormatVersion: 2
-guid: 0da46681b7af88849830c8646905eae8
+guid: ac158b2a3e8b48c41a0acb9a5f6536cc
 PrefabImporter:
   externalObjects: {}
   userData: 
   assetBundleName: 
   assetBundleVariant: 
-AssetOrigin:
-  serializedVersion: 1
-  productId: 249962
-  packageName: Node Based Dialog System
-  packageVersion: 2.0.1
-  assetPath: Assets/Plugins/DialogNodeBasedSystem/Prefabs/Answer Button.prefab
-  uploadId: 751765
