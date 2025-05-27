@@ -16,8 +16,8 @@ MonoBehaviour:
   NodeGraph: {fileID: 11400000}
   Rect:
     serializedVersion: 2
-    x: 501
-    y: 347
+    x: 1182
+    y: 292
     width: 190
     height: 135
   IsDragging: 1
@@ -48,8 +48,8 @@ MonoBehaviour:
   NodeGraph: {fileID: 11400000}
   Rect:
     serializedVersion: 2
-    x: 255
-    y: 518
+    x: 936
+    y: 463
     width: 190
     height: 135
   IsDragging: 1
@@ -103,15 +103,16 @@ MonoBehaviour:
   NodeGraph: {fileID: 11400000}
   Rect:
     serializedVersion: 2
-    x: -362
-    y: 474
+    x: 268
+    y: 418
     width: 190
     height: 135
   IsDragging: 1
   IsSelected: 0
   _sentence:
     CharacterName: Stella
-    Text: Albert! Albert! My dear, oh my dear boy! Please help me find Hektor!
+    Text: <shake> Albert! Albert! </shake> My dear, oh my dear boy! Please help me
+      find Hektor!
     CharacterSprite: {fileID: 0}
   ParentNode: {fileID: 0}
   ChildNode: {fileID: 1242545470410171976}
@@ -135,8 +136,8 @@ MonoBehaviour:
   NodeGraph: {fileID: 11400000}
   Rect:
     serializedVersion: 2
-    x: -63
-    y: 477
+    x: 618
+    y: 422
     width: 190
     height: 135
   IsDragging: 1
@@ -165,8 +166,8 @@ MonoBehaviour:
   NodeGraph: {fileID: 11400000}
   Rect:
     serializedVersion: 2
-    x: 246
-    y: 338
+    x: 927
+    y: 283
     width: 190
     height: 155
   IsDragging: 1
