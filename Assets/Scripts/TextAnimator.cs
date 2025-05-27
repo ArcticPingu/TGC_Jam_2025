@@ -7,7 +7,16 @@ using TMPro;
 public class TextAnimator : MonoBehaviour
 {
     private TextMeshProUGUI textMesh;
+    public static bool animating;
+    public static TextAnimator animator;
     private string originalText;
+    public float shakeIntensity;
+    public float shakeFrequenzy;
+    public float typingSpeed = 0.05f;
+
+    private float typingTimer;
+    private int visibleCharacterCount;
+    private bool isTyping = false;
 
     [System.Serializable]
     public class TagInfo
@@ -22,19 +31,25 @@ public class TextAnimator : MonoBehaviour
     void Awake()
     {
         textMesh = GetComponent<TextMeshProUGUI>();
-        originalText = textMesh.text;
-        ParseTags();
-        StartCoroutine(AnimateText());
     }
 
     void Update()
     {
-        originalText = textMesh.text;
-        ParseTags();
+        if (originalText != textMesh.text && !isTyping)
+        {
+            Debug.Log("New Text");
+            originalText = textMesh.text;
+            ParseTags();
+            StartCoroutine(RevealTextCoroutine());
+        }
+
+        AnimateText();
     }
 
     void ParseTags()
     {
+        tags = new List<TagInfo>();
+
         string parsedText = "";
         Stack<string> tagStack = new Stack<string>();
         int i = 0;
@@ -78,63 +93,86 @@ public class TextAnimator : MonoBehaviour
         }
 
         textMesh.text = parsedText;
+        originalText = parsedText;
     }
 
-    IEnumerator AnimateText()
+    IEnumerator RevealTextCoroutine()
+    {
+        animator = this;
+        animating = true;
+        isTyping = true;
+
+        visibleCharacterCount = 0;
+        textMesh.maxVisibleCharacters = 0;
+
+        while (visibleCharacterCount < originalText.Length)
+        {
+            visibleCharacterCount++;
+            textMesh.maxVisibleCharacters = visibleCharacterCount;
+            yield return new WaitForSeconds(typingSpeed);
+        }
+
+        isTyping = false;
+        animating = false;
+        animator = null;
+    }
+
+    public void Finish()
+    {
+        visibleCharacterCount = 9999;
+        textMesh.maxVisibleCharacters = visibleCharacterCount;
+    }
+
+    void AnimateText()
     {
         TMP_TextInfo textInfo = textMesh.textInfo;
+        textMesh.ForceMeshUpdate();
+        textInfo = textMesh.textInfo;
 
-        while (true)
+        for (int i = 0; i < textInfo.characterCount; i++)
         {
-            textMesh.ForceMeshUpdate();
-            textInfo = textMesh.textInfo;
+            TMP_CharacterInfo charInfo = textInfo.characterInfo[i];
+            if (!charInfo.isVisible) continue;
 
-            for (int i = 0; i < textInfo.characterCount; i++)
+            int meshIndex = charInfo.materialReferenceIndex;
+            int vertexIndex = charInfo.vertexIndex;
+
+            Vector3[] vertices = textInfo.meshInfo[meshIndex].vertices;
+            Vector3 offset = Vector3.zero;
+
+            foreach (var tag in tags)
             {
-                TMP_CharacterInfo charInfo = textInfo.characterInfo[i];
-
-                if (!charInfo.isVisible)
-                    continue;
-
-                int meshIndex = charInfo.materialReferenceIndex;
-                int vertexIndex = charInfo.vertexIndex;
-
-                Vector3[] vertices = textInfo.meshInfo[meshIndex].vertices;
-
-                Vector3 offset = Vector3.zero;
-
-                // Determine if the current character is within a tag range
-                foreach (var tag in tags)
+                if (i >= tag.startIndex && i < tag.endIndex)
                 {
-                    if (i >= tag.startIndex && i < tag.endIndex)
+                    if (tag.tag == "wave")
                     {
-                        if (tag.tag == "wave")
-                        {
-                            offset = new Vector3(0, Mathf.Sin(Time.time * 10f + i) * 5f, 0);
-                        }
-                        else if (tag.tag == "shake")
-                        {
-                            offset = new Vector3(Random.Range(-1f, 1f), Random.Range(-1.5f, 1.5f), 0);
-                        }
-                        break; // Assuming non-overlapping tags
+                        offset = new Vector3(0, Mathf.Sin(Time.time * 10f + i) * 5f, 0);
                     }
-                }
+                    else if (tag.tag == "shake")
+                    {
+                        float time = Time.time * shakeFrequenzy;
+                        float perCharSeedX = i * 7.13f + 0.123f;
+                        float perCharSeedY = i * 9.41f + 0.987f;
 
-                for (int j = 0; j < 4; j++)
-                {
-                    vertices[vertexIndex + j] += offset;
+                        float x = (Mathf.PerlinNoise(perCharSeedX, time) - 0.5f) * 2f * shakeIntensity;
+                        float y = (Mathf.PerlinNoise(perCharSeedY, time) - 0.5f) * 2f * shakeIntensity * 2f;
+
+                        offset = new Vector3(x, y, 0);
+                    }
+                    break;
                 }
             }
 
-            // Push the updated vertex data to the mesh
-            for (int i = 0; i < textInfo.meshInfo.Length; i++)
+            for (int j = 0; j < 4; j++)
             {
-                textInfo.meshInfo[i].mesh.vertices = textInfo.meshInfo[i].vertices;
-                textMesh.UpdateGeometry(textInfo.meshInfo[i].mesh, i);
+                vertices[vertexIndex + j] += offset;
             }
+        }
 
-            yield return null;
+        for (int i = 0; i < textInfo.meshInfo.Length; i++)
+        {
+            textInfo.meshInfo[i].mesh.vertices = textInfo.meshInfo[i].vertices;
+            textMesh.UpdateGeometry(textInfo.meshInfo[i].mesh, i);
         }
     }
-
 }

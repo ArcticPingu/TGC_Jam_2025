@@ -16,6 +16,7 @@ public class GameManager : MonoBehaviour
     public int maxActionPoints;
     public int currentActionPoints;
     public AudioSource source;
+    public bool skipIntro;
 
 
 
@@ -34,16 +35,10 @@ public class GameManager : MonoBehaviour
 
         keys.Add("default");
 
-        GameObject.Find("Player").transform.position = spawn;
 
-        SceneManager.sceneLoaded += changeScene;
+        FindAnyObjectByType<StoryCanvas>().gameObject.SetActive(false);
     }
 
-    private void changeScene(Scene arg0, LoadSceneMode arg1)
-    {
-        GameObject.Find("Player").transform.position = spawn;
-        Debug.Log(GameObject.Find("Player").transform.position);
-    }
 
     public bool checkReq(string req)
     {
