@@ -11,7 +11,7 @@ public class ClassicDialog : Interacteble
     {
         if (isInConversation)
             return;
-            
+
         DialogueSystem.ResetConversation();
         isInConversation = true;
         (showPlayer ? PlayerContainer : NpcContainer).SetActive(true);
@@ -43,7 +43,10 @@ public class ClassicDialog : Interacteble
         {
             (showPlayer ? PlayerContainer : NpcContainer).SetActive(true);
             (showPlayer ? PlayerText : NpcText).gameObject.SetActive(true);
+
             (showPlayer ? PlayerText : NpcText).text = textToShow;
+            (showPlayer ? PlayerText : NpcText).GetComponent<TextAnimator>().ForceParseLocal();
+
             showingText = true;
             shouldShowText = false;
         }
@@ -102,7 +105,14 @@ public class ClassicDialog : Interacteble
 
                     if (i < lines.Count)
                     {
+                        if (!DialogueSystem.ExecuteChecks(lines[i], i))
+                        {
+                            ButtonParent.GetChild(i).gameObject.SetActive(false);
+                            continue;
+                        }    
+
                         ButtonParent.GetChild(i).GetComponentInChildren<TextMeshProUGUI>().text = lines[i].Message;
+                        ButtonParent.GetChild(i).GetComponentInChildren<TextAnimator>().ForceParseLocal();
                         Button button = ButtonParent.GetChild(i).GetComponentInChildren<Button>();
                         button.onClick.RemoveAllListeners(); // Remove existing listeners
                         int index = i;
@@ -129,5 +139,33 @@ public class ClassicDialog : Interacteble
         shouldShowText = true;
         showPlayer = true;
     }
+
+    public void ActionPoint()
+    {
+        GameManager.Instance.currentActionPoints--;
+    }
+
+    public bool meetBefore;
+
+    public void setMeetBeforTrue()
+    {
+        meetBefore = true;
+    }
+
+    public bool getMeetBefore()
+    {
+        return meetBefore;
+    }
+
+    public bool hasDog;
     
+    public void setHasDogTrue()
+    {
+        hasDog = true;
+    }
+
+    public bool getHasDog()
+    {
+        return hasDog;
+    }
 }

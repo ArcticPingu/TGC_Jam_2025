@@ -1,7 +1,7 @@
 {
   "dependencies": {
     "com.github.teodorvecerdi.dialoguegraph": {
-      "version": "https://github.com/TeodorVecerdi/DialogueGraph.git",
+      "version": "https://github.com/ArcticPingu/DialogueGraph.git",
       "depth": 0,
       "source": "git",
       "dependencies": {
@@ -9,7 +9,7 @@
         "com.unity.shadergraph": "10.5.1",
         "com.unity.nuget.newtonsoft-json": "2.0.0"
       },
-      "hash": "9837f4c05998ec3f19a37b040575438686d8dc44"
+      "hash": "cf12d273e4673b608c502661635013dae56061e1"
     },
     "com.unity.2d.animation": {
       "version": "10.1.4",

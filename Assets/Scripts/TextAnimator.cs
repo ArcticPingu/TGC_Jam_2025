@@ -33,17 +33,14 @@ public class TextAnimator : MonoBehaviour
         textMesh = GetComponent<TextMeshProUGUI>();
     }
 
-    void Update()
+    public void ForceParseLocal()
     {
-        if (originalText != textMesh.text && !isTyping)
-        {
-            Debug.Log("New Text");
-            originalText = textMesh.text;
-            ParseTags();
-            StartCoroutine(RevealTextCoroutine());
-        }
-
-        AnimateText();
+        visibleCharacterCount = 0;
+        textMesh.maxVisibleCharacters = 0;
+        Debug.Log("New Text");
+        originalText = textMesh.text;
+        ParseTags();
+        StartCoroutine(RevealTextCoroutine());
     }
 
     void ParseTags()
@@ -51,7 +48,7 @@ public class TextAnimator : MonoBehaviour
         tags = new List<TagInfo>();
 
         string parsedText = "";
-        Stack<string> tagStack = new Stack<string>();
+        Stack<(string tag, int startIndex)> tagStack = new Stack<(string, int)>();
         int i = 0;
 
         while (i < originalText.Length)
@@ -61,29 +58,37 @@ public class TextAnimator : MonoBehaviour
                 int closeIndex = originalText.IndexOf('>', i);
                 if (closeIndex == -1) break;
 
+                string fullTag = originalText.Substring(i, closeIndex - i + 1);
                 string tagContent = originalText.Substring(i + 1, closeIndex - i - 1);
                 bool isClosing = tagContent.StartsWith("/");
-                string tagName = isClosing ? tagContent.Substring(1) : tagContent;
+                string tagName = isClosing ? tagContent.Substring(1) : tagContent.Split('=')[0];
 
-                if (!isClosing)
+                bool isWaveOrShake = tagName == "wave" || tagName == "shake";
+
+                if (isWaveOrShake)
                 {
-                    tagStack.Push(tagName);
-                    tags.Add(new TagInfo { startIndex = parsedText.Length, tag = tagName });
+                    if (!isClosing)
+                    {
+                        tagStack.Push((tagName, parsedText.Length));
+                    }
+                    else
+                    {
+                        if (tagStack.Count > 0 && tagStack.Peek().tag == tagName)
+                        {
+                            var (openTag, startIndex) = tagStack.Pop();
+                            tags.Add(new TagInfo { tag = tagName, startIndex = startIndex, endIndex = parsedText.Length });
+                        }
+                    }
+
+                    // Skip adding <wave> or <shake> tags to final text
+                    i = closeIndex + 1;
                 }
                 else
                 {
-                    if (tagStack.Count > 0 && tagStack.Peek() == tagName)
-                    {
-                        tagStack.Pop();
-                        var lastTag = tags.FindLast(t => t.tag == tagName && t.endIndex == 0);
-                        if (lastTag != null)
-                        {
-                            lastTag.endIndex = parsedText.Length;
-                        }
-                    }
+                    // Keep all other tags
+                    parsedText += fullTag;
+                    i = closeIndex + 1;
                 }
-
-                i = closeIndex + 1;
             }
             else
             {
@@ -95,6 +100,9 @@ public class TextAnimator : MonoBehaviour
         textMesh.text = parsedText;
         originalText = parsedText;
     }
+
+
+
 
     IEnumerator RevealTextCoroutine()
     {
@@ -123,6 +131,11 @@ public class TextAnimator : MonoBehaviour
         textMesh.maxVisibleCharacters = visibleCharacterCount;
     }
 
+    void Update()
+    {
+        AnimateText();
+    }
+    
     void AnimateText()
     {
         TMP_TextInfo textInfo = textMesh.textInfo;
