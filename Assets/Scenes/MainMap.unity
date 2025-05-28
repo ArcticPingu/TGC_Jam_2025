@@ -2954,7 +2954,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   time: 0.3
   targetTime: 0.3
-  speed: 0.15
+  speed: 0.2
   sunLight: {fileID: 410087040}
   sunColor:
     serializedVersion: 2
