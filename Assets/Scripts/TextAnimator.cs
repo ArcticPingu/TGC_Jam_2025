@@ -9,7 +9,7 @@ public class TextAnimator : MonoBehaviour
     private TextMeshProUGUI textMesh;
     public static bool animating;
     public static TextAnimator animator;
-    private string originalText;
+    public string originalText;
     public float shakeIntensity;
     public float shakeFrequenzy;
     public float typingSpeed = 0.05f;

@@ -618,6 +618,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2668789269266758373}
+  - component: {fileID: 6267007283637649286}
   m_Layer: 0
   m_Name: Dialog Prefab
   m_TagString: Untagged
@@ -641,6 +642,24 @@ Transform:
   - {fileID: 3951036700615300428}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &6267007283637649286
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4825435160123347712}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b290375b8e229844bad1c5900f49303f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  PlayerContainer: {fileID: 4404572490694987052}
+  NpcContainer: {fileID: 5825870014156403097}
+  ButtonParent: {fileID: 3694393729744715891}
+  PlayerText: {fileID: 2838905498788998377}
+  NpcText: {fileID: 5790137693722899738}
+  NpcName: {fileID: 7345451046969563053}
 --- !u!1 &5095255248663091259
 GameObject:
   m_ObjectHideFlags: 0
