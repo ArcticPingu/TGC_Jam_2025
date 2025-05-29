@@ -1,3 +1,4 @@
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class Door : Interacteble
@@ -16,6 +17,7 @@ public class Door : Interacteble
     public void Close()
     {
         closed = true;
+        FindAnyObjectByType<GateObject>().Close();
     }
 
     public bool isClosed()

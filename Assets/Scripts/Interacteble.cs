@@ -180,8 +180,6 @@ public abstract class Interacteble : MonoBehaviour
 
     public void Click(int index)
     {
-        Debug.Log(index);
-
         for (int i = 0; i < 3; i++)
         {
             ButtonParent.GetChild(i).gameObject.SetActive(false);
