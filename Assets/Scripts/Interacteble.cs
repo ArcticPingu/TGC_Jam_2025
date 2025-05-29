@@ -173,7 +173,10 @@ public abstract class Interacteble : MonoBehaviour
 
                 List<ConversationLine> lines = DialogueSystem.GetCurrentLines();
 
-                for (int i = 0; i < 3; i++)
+                ushort count = 0;
+                int lastIndex = 0;
+
+                for (int i = 0; i < 5; i++)
                 {
                     ButtonParent.GetChild(i).gameObject.SetActive(i < lines.Count);
 
@@ -185,8 +188,11 @@ public abstract class Interacteble : MonoBehaviour
                             continue;
                         }
 
+                        count++;
+
                         ButtonParent.GetChild(i).GetComponentInChildren<TextMeshProUGUI>().text = lines[i].Message;
                         ButtonParent.GetChild(i).GetComponentInChildren<TextAnimator>().ForceParseLocal();
+                        ButtonParent.GetChild(i).GetComponent<FutureNeedle>().showFuture = false;
 
                         foreach (string item in lines[i].Triggers)
                         {
@@ -194,6 +200,7 @@ public abstract class Interacteble : MonoBehaviour
                             {
                                 ButtonParent.GetChild(i).GetComponent<FutureNeedle>().showFuture = true;
                             }
+
                             Debug.Log(item);
                         }
 
@@ -203,7 +210,14 @@ public abstract class Interacteble : MonoBehaviour
                         int index = i;
                         button.onClick.AddListener(() => Click(index));
                         Debug.Log(i);
+
+                        lastIndex = i;
                     }
+                }
+
+                if (count == 1)
+                {
+                    Click(lastIndex);
                 }
 
             }
@@ -212,7 +226,7 @@ public abstract class Interacteble : MonoBehaviour
 
     public void Click(int index)
     {
-        for (int i = 0; i < 3; i++)
+        for (int i = 0; i < 5; i++)
         {
             ButtonParent.GetChild(i).gameObject.SetActive(false);
         }

@@ -7,6 +7,8 @@ public class InventoryManager : MonoBehaviour
     public static InventoryManager Instance;
     public InventoryItem[] inventory = new InventoryItem[5];
     public Transform[] inventoryHolder;
+    public List<string> flags = new();
+    public int n;
 
     public bool hasItem(string item)
     {
@@ -30,14 +32,14 @@ public class InventoryManager : MonoBehaviour
             if (inventory[i] != null)
             {
                 inventoryHolder[i].GetComponent<Image>().sprite = inventory[i].sprite;
-                inventoryHolder[i].GetComponent<Image>().color = new Color(1,1,1,1);
+                inventoryHolder[i].GetComponent<Image>().color = new Color(1, 1, 1, 1);
             }
             else
             {
                 inventoryHolder[i].GetComponent<Image>().sprite = null;
                 inventoryHolder[i].GetComponent<Image>().color = new Color(0, 0, 0, 0);
             }
-                
+
         }
     }
 
@@ -46,9 +48,16 @@ public class InventoryManager : MonoBehaviour
     {
         if (Instance != null)
         {
-            Destroy(Instance.gameObject);    
+            Destroy(Instance.gameObject);
         }
 
         Instance = this;
+
+        InventoryManager.Instance.flags.Add("bush1");
+    }
+
+    public void AddItem(InventoryItem item)
+    {
+        inventory[n++] = item;
     }
 }

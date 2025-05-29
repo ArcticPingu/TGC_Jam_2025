@@ -80,7 +80,7 @@
                 },
                 "Expanded": true
             },
-            "NodeData": "{\"lines\":\"[{\\\"Line\\\":\\\"Yes! ⚡\\\",\\\"PortGuidA\\\":\\\"692c1f11-a21d-4738-a720-3d426fa566fe\\\",\\\"PortGuidB\\\":\\\"42b3e6b8-7039-4878-a5db-a04d74a61e9f\\\",\\\"PortGuidC\\\":\\\"3f25615c-d451-4ace-869b-ca77959fe9e9\\\"},{\\\"Line\\\":\\\"No!\\\",\\\"PortGuidA\\\":\\\"97493c4b-18f9-4dab-95d0-37efbf31460e\\\",\\\"PortGuidB\\\":\\\"b66005b1-3d3a-4149-b654-afd4e1aa8a65\\\",\\\"PortGuidC\\\":\\\"3636b325-8adc-42a2-80dc-8766f0d28cb6\\\"}]\"}",
+            "NodeData": "{\"lines\":\"[{\\\"Line\\\":\\\"Yes!\\\",\\\"PortGuidA\\\":\\\"692c1f11-a21d-4738-a720-3d426fa566fe\\\",\\\"PortGuidB\\\":\\\"42b3e6b8-7039-4878-a5db-a04d74a61e9f\\\",\\\"PortGuidC\\\":\\\"3f25615c-d451-4ace-869b-ca77959fe9e9\\\"},{\\\"Line\\\":\\\"No!\\\",\\\"PortGuidA\\\":\\\"97493c4b-18f9-4dab-95d0-37efbf31460e\\\",\\\"PortGuidB\\\":\\\"b66005b1-3d3a-4149-b654-afd4e1aa8a65\\\",\\\"PortGuidC\\\":\\\"3636b325-8adc-42a2-80dc-8766f0d28cb6\\\"}]\"}",
             "PortData": [
                 "582ede15-3d87-487a-8522-062212c375b0",
                 "692c1f11-a21d-4738-a720-3d426fa566fe",
