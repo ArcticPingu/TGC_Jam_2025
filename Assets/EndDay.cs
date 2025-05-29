@@ -3,16 +3,6 @@ using UnityEngine.SceneManagement;
 
 public class EndDay : Interacteble
 {
-    public override void Interact()
-    {
-        if (isInConversation)
-            return;
-
-        DialogueSystem.ResetConversation();
-        isInConversation = true;
-        (showPlayer ? PlayerContainer : NpcContainer).SetActive(true);
-    }
-
     public void End()
     {
         GameManager.Instance.currentActionPoints = 0;

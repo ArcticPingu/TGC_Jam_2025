@@ -11,6 +11,7 @@ public class PlayerController : MonoBehaviour
     private Vector2 moveInput;
     private Rigidbody rb;
     private Animator ani;
+    public bool canMove;
 
     void Awake()
     {
@@ -26,12 +27,15 @@ public class PlayerController : MonoBehaviour
 
     }
 
-    // Called every physics frame, so movement is continuous
     void FixedUpdate()
     {
-        // Apply movement input (force-based movement)
         Vector3 moveDirection = new Vector3(moveInput.x, 0, moveInput.y).normalized;
         Vector3 desiredVelocity = moveDirection * speed;
+         
+        if (!canMove)
+        {
+            desiredVelocity = new Vector3(0, 0, 0);
+        }
 
         // Use physics-based movement (not direct velocity set)
         rb.AddForce(desiredVelocity - rb.linearVelocity, ForceMode.VelocityChange);

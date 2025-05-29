@@ -15,6 +15,8 @@ public abstract class Interacteble : MonoBehaviour
     protected TMP_Text NpcText;
     protected TMP_Text NpcName;
 
+    public PlayerController talker;
+
     protected bool isInConversation = false;
     protected bool showPlayer;
     protected bool isPlayerChoosing;
@@ -48,7 +50,19 @@ public abstract class Interacteble : MonoBehaviour
         }
     }
 
-    public abstract void Interact();
+    public void Interact(PlayerController player)
+    {
+        if (isInConversation)
+            return;
+
+        DialogueSystem.ResetConversation();
+        isInConversation = true;
+        (showPlayer ? PlayerContainer : NpcContainer).SetActive(true);
+
+        talker = player;
+
+        talker.canMove = false;
+    }
 
 
     private bool _hidden;
@@ -132,6 +146,10 @@ public abstract class Interacteble : MonoBehaviour
 
                 PlayerContainer.SetActive(false);
                 NpcContainer.SetActive(false);
+
+                Debug.Log("END");
+                talker.canMove = true;
+
                 return;
             }
 

@@ -7,4 +7,9 @@ public class StoryCanvas : MonoBehaviour
     {
         GetComponent<Animator>().Play("Outro");
     }
+
+    public void SkipIntro()
+    {
+        GetComponent<Animator>().StopPlayback();
+    }
 }

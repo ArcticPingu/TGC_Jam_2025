@@ -17,7 +17,7 @@ public class Interacter : MonoBehaviour
 
         if (localDistantSortedObjects.Count > 0 && Vector3.Distance(localDistantSortedObjects[0].transform.position, transform.position) < reachDistance)
         {
-            localDistantSortedObjects[0].Interact();
+            localDistantSortedObjects[0].Interact(GetComponent<PlayerController>());
         }
 
     }

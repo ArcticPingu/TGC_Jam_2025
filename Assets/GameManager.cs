@@ -36,7 +36,8 @@ public class GameManager : MonoBehaviour
         keys.Add("default");
 
 
-        FindAnyObjectByType<StoryCanvas>().gameObject.SetActive(false);
+        if (skipIntro)
+            FindAnyObjectByType<StoryCanvas>().SkipIntro();
     }
 
 
