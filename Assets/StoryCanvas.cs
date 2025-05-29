@@ -10,6 +10,6 @@ public class StoryCanvas : MonoBehaviour
 
     public void SkipIntro()
     {
-        GetComponent<Animator>().StopPlayback();
+        GetComponent<Animator>().enabled = false;
     }
 }

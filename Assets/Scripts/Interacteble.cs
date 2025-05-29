@@ -23,6 +23,9 @@ public abstract class Interacteble : MonoBehaviour
     protected bool shouldShowText;
     protected bool showingText;
     protected string textToShow;
+
+    public string CostId;
+
     protected
     void Awake()
     {
@@ -184,6 +187,17 @@ public abstract class Interacteble : MonoBehaviour
 
                         ButtonParent.GetChild(i).GetComponentInChildren<TextMeshProUGUI>().text = lines[i].Message;
                         ButtonParent.GetChild(i).GetComponentInChildren<TextAnimator>().ForceParseLocal();
+
+                        foreach (string item in lines[i].Triggers)
+                        {
+                            if (CostId == item)
+                            {
+                                ButtonParent.GetChild(i).GetComponent<FutureNeedle>().showFuture = true;
+                            }
+                            Debug.Log(item);
+                        }
+
+                        // 
                         Button button = ButtonParent.GetChild(i).GetComponentInChildren<Button>();
                         button.onClick.RemoveAllListeners(); // Remove existing listeners
                         int index = i;
