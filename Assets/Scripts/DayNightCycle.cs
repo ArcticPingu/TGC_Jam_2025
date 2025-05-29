@@ -5,8 +5,9 @@ public class DayNightCycle : MonoBehaviour
     public static DayNightCycle Instance;
 
     [Header("Time Settings")]
-    public float time; // Normalized time (0 to 1)
-    public float targetTime;
+    public float time; // Smoothed "day curve" time (0 to 1)
+    public float targetNormalizedAP;
+    public float smoothedAP;
     public float speed = 1;
 
     [Header("Sun Settings")]
@@ -18,6 +19,12 @@ public class DayNightCycle : MonoBehaviour
     public float maxIntensity = 1.5f;
     public float minIntensity = 0f;
 
+    [Header("Sun Movement Settings")]
+    public float minElevationAngle = 10f; // Horizon
+    public float maxElevationAngle = 70f; // Peak
+    public float startAzimuth = 55f;      // Sunrise
+    public float endAzimuth = -55f;       // Sunset
+
     private void Awake()
     {
         Instance = this;
@@ -25,23 +32,28 @@ public class DayNightCycle : MonoBehaviour
 
     void Update()
     {
-        // Update time from 0 to 1
-        targetTime = 1 - (GameManager.Instance.currentActionPoints * (1f / GameManager.Instance.maxActionPoints) * 0.4f) - 0.3f;
+        // Smooth AP input to avoid jumps
+        targetNormalizedAP = Mathf.Clamp01((float)GameManager.Instance.currentActionPoints / GameManager.Instance.maxActionPoints);
+        smoothedAP = Mathf.Lerp(smoothedAP, targetNormalizedAP, Time.deltaTime * speed);
 
-        time = Mathf.Lerp(time, targetTime, Time.deltaTime * speed);
+        // Parabolic curve based on smoothed AP (not jumpy)
+        time = Mathf.Sin(smoothedAP * Mathf.PI);
 
-        if (time > 1f) time = 0f;
+        // Elevation (X axis)
+        float elevation = Mathf.Lerp(minElevationAngle, maxElevationAngle, time);
 
-        // Rotate the sun
-        float sunAngle = time * 360f - 90f; // Makes sunrise at 0.25, sunset at 0.75
-        sun.rotation = Quaternion.Euler(sunAngle, 170f, 0f);
+        // Azimuth (Y axis) from smoothedAP
+        float azimuth = Mathf.Lerp(startAzimuth, endAzimuth, smoothedAP);
 
-        // Update sun color using gradient
+        // Apply rotation
+        sun.rotation = Quaternion.Euler(elevation, azimuth, 0f);
+
+        // Intensity and color
+        float brightness = Mathf.Lerp(minIntensity, maxIntensity, time);
+        sunLight.intensity = brightness;
         sunLight.color = sunColor.Evaluate(time);
 
-        // Calculate brightness (intensity) using a custom formula:
-        // Peak at noon (time = 0.5), zero at midnight (time = 0 or 1)
-        float brightness = Mathf.Clamp01(Mathf.Cos((time - 0.5f) * Mathf.PI * 2f)); // Cos wave from 0 to 1
-        sunLight.intensity = Mathf.Lerp(minIntensity, maxIntensity, brightness);
+        // Shader
+        Shader.SetGlobalVector("_Sun", sun.transform.forward);
     }
 }

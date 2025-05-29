@@ -54,5 +54,6 @@ public class PlayerController : MonoBehaviour
 
         Shader.SetGlobalVector("_PlayerPos", pos);
         Shader.SetGlobalVector("_test", transform.position);
+
     }
 }

@@ -24,6 +24,10 @@ Material:
   m_SavedProperties:
     serializedVersion: 3
     m_TexEnvs:
+    - _Emission:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
     - _MainTex:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
@@ -44,11 +48,12 @@ Material:
     m_Floats:
     - _Boolean: 0
     - _Clip: 0
-    - _Fallof: 0.13
+    - _Fallof: 0.3
     - _QueueControl: 0
     - _QueueOffset: 0
-    - _size: 0.23
+    - _size: 0.45
     m_Colors:
+    - _Glow: {r: 2.1185474, g: 1.6737295, b: 0.60958195, a: 0}
     - _PlayerPos: {r: 31.6, g: 3.4, b: -15.2, a: 0}
     - _test: {r: 31.59, g: 2.51, b: -25.7, a: 0}
     - _test2: {r: 31.59, g: 2.51, b: -25.79, a: 0}
