@@ -12,6 +12,9 @@ public class PlayerController : MonoBehaviour
     private Rigidbody rb;
     private Animator ani;
     public bool canMove;
+    public AudioClip[] footsteps;
+    public AudioSource source;
+    private int count;
 
     void Awake()
     {
@@ -31,7 +34,7 @@ public class PlayerController : MonoBehaviour
     {
         Vector3 moveDirection = new Vector3(moveInput.x, 0, moveInput.y).normalized;
         Vector3 desiredVelocity = moveDirection * speed;
-         
+
         if (!canMove)
         {
             desiredVelocity = new Vector3(0, 0, 0);
@@ -55,5 +58,10 @@ public class PlayerController : MonoBehaviour
         Shader.SetGlobalVector("_PlayerPos", pos);
         Shader.SetGlobalVector("_test", transform.position);
 
+    }
+
+    public void PlayStep()
+    {
+        source.PlayOneShot(footsteps[count++%footsteps.Length]);
     }
 }

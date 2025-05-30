@@ -610,6 +610,27 @@
             "PortData": [
                 "f6d7cc6a-0809-4167-90c0-7d15414787e4"
             ]
+        },
+        {
+            "GUID": "3a252c6d-d2ca-4e43-b39a-53dc2041bbb4",
+            "Type": "DialogueGraph.SelfNode",
+            "DrawState": {
+                "Position": {
+                    "serializedVersion": "2",
+                    "x": 4246.0,
+                    "y": 101.0,
+                    "width": 394.0,
+                    "height": 141.0
+                },
+                "Expanded": true
+            },
+            "NodeData": "{\"lines\":\"[{\\\"Line\\\":\\\"I should have distracted her first.\\\",\\\"PortGuidA\\\":\\\"955ee2af-76e9-4aaf-bee7-14a460af0db8\\\",\\\"PortGuidB\\\":\\\"a854f9f7-6a65-4027-87a1-e3fbf119ef22\\\",\\\"PortGuidC\\\":\\\"f0586288-c2e7-4f64-866a-a4bda590a920\\\"}]\"}",
+            "PortData": [
+                "f87ee550-2199-498e-94ff-c814d10a04c5",
+                "955ee2af-76e9-4aaf-bee7-14a460af0db8",
+                "a854f9f7-6a65-4027-87a1-e3fbf119ef22",
+                "f0586288-c2e7-4f64-866a-a4bda590a920"
+            ]
         }
     ],
     "edges": [
@@ -932,6 +953,14 @@
             "OutputPort": "47ab3ae4-804e-4af5-a43a-7e62f09d67c2",
             "InputCapacity": 1,
             "OutputCapacity": 1
+        },
+        {
+            "Input": "3a252c6d-d2ca-4e43-b39a-53dc2041bbb4",
+            "Output": "6242407c-23ac-4222-b5c3-6c3029caf7de",
+            "InputPort": "f87ee550-2199-498e-94ff-c814d10a04c5",
+            "OutputPort": "dd804ee5-f9e5-444a-b7ac-84db62fc911c",
+            "InputCapacity": 1,
+            "OutputCapacity": 0
         }
     ],
     "serializedProperties": [

@@ -16,8 +16,7 @@ public class BerryBush : Interacteble
 
     public void Reset()
     {
-        InventoryManager.Instance.flags.Remove("bush3");
-        InventoryManager.Instance.flags.Remove("bush7");
+        index = 0;
     }
 
     public void AddBerry()
