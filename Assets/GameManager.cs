@@ -61,6 +61,16 @@ public class GameManager : MonoBehaviour
     public void SpendPoint(int amount)
     {
         currentActionPoints -= amount;
+
+        if (currentActionPoints <= 0)
+        {
+            foreach (var item in FindObjectsByType<Interacteble>(FindObjectsSortMode.None))
+            {
+                item.interactable = false;
+            }
+        }
+
+        FindAnyObjectByType<StoryCanvas>().SadEnd();
     }
 
     public void Generosity()

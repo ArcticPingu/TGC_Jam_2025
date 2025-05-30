@@ -2,6 +2,7 @@ using System.Collections.Generic;
 using DialogueGraph.Runtime;
 using TMPro;
 using UnityEngine;
+using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
 public abstract class Interacteble : MonoBehaviour
@@ -65,6 +66,7 @@ public abstract class Interacteble : MonoBehaviour
 
         DialogueSystem.ResetConversation();
         isInConversation = true;
+
         (showPlayer ? PlayerContainer : NpcContainer).SetActive(true);
 
         talker = player;
@@ -99,7 +101,7 @@ public abstract class Interacteble : MonoBehaviour
     {
         if (!interactable)
             return;
-            
+
         // Pop in with a bounce
         LeanTween.scale(gameObject, Vector3.one, animationDuration)
             .setEase(LeanTweenType.easeOutBack);
@@ -129,22 +131,7 @@ public abstract class Interacteble : MonoBehaviour
             shouldShowText = false;
         }
 
-        if (showingText)
-        {
-            if (Input.GetKeyDown(KeyCode.Space))
-            {
-                if (TextAnimator.animating)
-                {
-                    TextAnimator.animator.Finish();
-                    return;
-                }
-
-                showingText = false;
-                (showPlayer ? PlayerContainer : NpcContainer).SetActive(false);
-                (showPlayer ? PlayerText : NpcText).gameObject.SetActive(false);
-            }
-        }
-        else
+        if (!showingText)
         {
             if (DialogueSystem.IsConversationDone())
             {
@@ -160,6 +147,8 @@ public abstract class Interacteble : MonoBehaviour
 
                 Debug.Log("END");
                 talker.canMove = true;
+                talker.gameObject.GetComponent<Interacter>().curentinteracteble = null;
+                talker = null;
 
                 return;
             }
@@ -229,6 +218,10 @@ public abstract class Interacteble : MonoBehaviour
                 {
                     Click(lastIndex);
                 }
+                else
+                {
+                    EventSystem.current.SetSelectedGameObject(ButtonParent.GetChild(0).gameObject);
+                }
 
             }
         }
@@ -262,5 +255,22 @@ public abstract class Interacteble : MonoBehaviour
     {
         GameManager.Instance.currentActionPoints--;
     }
+    
+    public void Continue()
+    {
+        if (!showingText)
+            return;
+            
+        if (TextAnimator.animating)
+            {
+                TextAnimator.animator.Finish();
+                return;
+            }
+
+        showingText = false;
+        (showPlayer ? PlayerContainer : NpcContainer).SetActive(false);
+        (showPlayer ? PlayerText : NpcText).gameObject.SetActive(false);
+    }
+
 
 }

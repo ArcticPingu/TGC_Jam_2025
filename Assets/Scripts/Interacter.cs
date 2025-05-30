@@ -6,6 +6,7 @@ public class Interacter : MonoBehaviour
 
     public List<Interacteble> localDistantSortedObjects = new();
     public float reachDistance = 2.5f;
+    public Interacteble curentinteracteble;
     
     void Start()
     {
@@ -17,9 +18,18 @@ public class Interacter : MonoBehaviour
 
         if (localDistantSortedObjects.Count > 0 && Vector3.Distance(localDistantSortedObjects[0].transform.position, transform.position) < reachDistance)
         {
-            localDistantSortedObjects[0].Interact(GetComponent<PlayerController>());
+            if (curentinteracteble == null)
+            {
+                curentinteracteble = localDistantSortedObjects[0];
+                curentinteracteble.Interact(GetComponent<PlayerController>());  
+            }
         }
+    }
 
+    void OnContinue()
+    {
+        if(curentinteracteble != null)
+            curentinteracteble.Continue();
     }
 
     void UpdateVisibility()

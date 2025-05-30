@@ -5,19 +5,6 @@ public class EndDay : Interacteble
 {
     public void End()
     {
-        GameManager.Instance.currentActionPoints = 0;
-        Invoke(nameof(Outro), 10);
+        GameManager.Instance.SpendPoint(999);
     }
-
-    private void Outro()
-    {
-        FindAnyObjectByType<StoryCanvas>().Outro();
-        Invoke(nameof(LoadNewScene), 2);
-    }
-
-    private void LoadNewScene()
-    {
-        SceneManager.LoadScene("MainMap");
-    }
-
 }
