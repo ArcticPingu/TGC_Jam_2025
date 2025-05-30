@@ -1,5 +1,6 @@
 using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class DialogRefHolder : MonoBehaviour
 {
@@ -11,6 +12,7 @@ public class DialogRefHolder : MonoBehaviour
     public TMP_Text NpcText;
     public TMP_Text NpcName;
     public static DialogRefHolder Instance;
+    public Image npcImage;
 
     void Awake()
     {

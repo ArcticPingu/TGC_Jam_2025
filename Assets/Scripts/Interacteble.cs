@@ -14,6 +14,7 @@ public abstract class Interacteble : MonoBehaviour
     protected TMP_Text PlayerText;
     protected TMP_Text NpcText;
     protected TMP_Text NpcName;
+    protected Image npcImage;
 
     public PlayerController talker;
 
@@ -43,6 +44,7 @@ public abstract class Interacteble : MonoBehaviour
         PlayerText = DialogRefHolder.Instance.PlayerText;
         NpcText = DialogRefHolder.Instance.NpcText;
         NpcName = DialogRefHolder.Instance.NpcName;
+        npcImage = DialogRefHolder.Instance.npcImage;
     }
 
     void OnDestroy()
@@ -160,6 +162,8 @@ public abstract class Interacteble : MonoBehaviour
             if (isNpc)
             {
                 var currentActor = DialogueSystem.GetCurrentActor();
+                Actor container = (Actor)currentActor.CustomData;
+                npcImage.sprite = container.sprite;
                 showPlayer = false;
                 shouldShowText = true;
                 Debug.Log(currentActor);
