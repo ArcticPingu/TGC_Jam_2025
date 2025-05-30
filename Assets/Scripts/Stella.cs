@@ -14,9 +14,12 @@ public class Stella : Interacteble
     }
     public bool hasBerry()
     {
-        return InventoryManager.Instance.flags.Contains("berry");
+        return InventoryManager.Instance.hasItem("berry");
     }
-
+    public bool doorClosed()
+    {
+        return InventoryManager.Instance.flags.Contains("closeddoor");
+    }
     public bool isAnnoyed()
     {
         return annoyed;
@@ -25,24 +28,34 @@ public class Stella : Interacteble
     {
         annoyed = true;
     }
-
     public void GiveKey()
     {
         InventoryManager.Instance.flags.Add("stellakey");
     }
-
     public bool TalkingDog()
     {
         return InventoryManager.Instance.flags.Contains("talkingdog");
     }
-
     public bool StellaClose()
     {
         return InventoryManager.Instance.flags.Contains("stellaclose");
     }
-
     public void Distract()
     {
         InventoryManager.Instance.flags.Add("stelladistracted");
+    }
+    public bool SawGate()
+    {
+        Debug.Log(InventoryManager.Instance.flags.Contains("sawdoor"));
+        return InventoryManager.Instance.flags.Contains("sawdoor");
+    }
+    public bool RepairedGate(string id)
+    {
+        return InventoryManager.Instance.flags.Contains("repairedgate");
+    }
+
+    public void Generosity()
+    {
+        GameManager.Instance.Generosity();
     }
 }

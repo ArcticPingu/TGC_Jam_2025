@@ -3,6 +3,7 @@ using UnityEngine;
 public class Dog : Interacteble
 {
     public InventoryItem item;
+    public GameObject dog;
     public bool Puzzle()
     {
         return InventoryManager.Instance.flags.Contains("puzle1");
@@ -16,6 +17,8 @@ public class Dog : Interacteble
     public void AddDog()
     {
         InventoryManager.Instance.AddItem(item);
+        dog.SetActive(false);
+        interactable = false;
     }
 
     public bool hasBone()

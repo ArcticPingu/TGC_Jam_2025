@@ -7,18 +7,12 @@ using UnityEngine.SceneManagement;
 public class GameManager : MonoBehaviour
 {
     public static GameManager Instance;
-    public bool isTalking;
     public List<string> keys;
-    public Vector2 spawn;
-    public Transform player;
-    public AudioClip currentVoice;
-    public AudioClip pVoice;
     public int maxActionPoints;
     public int currentActionPoints;
-    public AudioSource source;
     public bool skipIntro;
 
-
+    public int generosityCounter;
 
     void Awake()
     {
@@ -67,5 +61,10 @@ public class GameManager : MonoBehaviour
     public void SpendPoint(int amount)
     {
         currentActionPoints -= amount;
+    }
+
+    public void Generosity()
+    {
+        FindAnyObjectByType<StoryCanvas>().Generosity(generosityCounter);
     }
 }

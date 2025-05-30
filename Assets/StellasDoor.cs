@@ -1,9 +1,11 @@
+using TMPro;
 using UnityEngine;
 
 public class StellasDoor : Interacteble
 {
     public ushort correct;
     public InventoryItem item;
+    public bool once = true;
     public bool wasToldCode()
     {
         return InventoryManager.Instance.flags.Contains("stellakey");
@@ -35,5 +37,15 @@ public class StellasDoor : Interacteble
     public void Bone()
     {
         InventoryManager.Instance.AddItem(item);
+    }
+
+    public bool GetOnce()
+    {
+        if (once)
+        {
+            once = false;
+            return true;
+        }
+        return false;
     }
 }

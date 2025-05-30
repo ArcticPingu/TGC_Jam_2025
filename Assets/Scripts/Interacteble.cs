@@ -26,6 +26,7 @@ public abstract class Interacteble : MonoBehaviour
     protected string textToShow;
 
     public string CostId;
+    public bool interactable;
 
     protected
     void Awake()
@@ -34,6 +35,8 @@ public abstract class Interacteble : MonoBehaviour
         {
             item.localDistantSortedObjects.Add(this);
         }
+
+        interactable = true;
     }
 
     void Start()
@@ -57,7 +60,7 @@ public abstract class Interacteble : MonoBehaviour
 
     public void Interact(PlayerController player)
     {
-        if (isInConversation)
+        if (isInConversation || !interactable)
             return;
 
         DialogueSystem.ResetConversation();
@@ -94,6 +97,9 @@ public abstract class Interacteble : MonoBehaviour
     public float animationDuration = 0.1f;
     public void Show()
     {
+        if (!interactable)
+            return;
+            
         // Pop in with a bounce
         LeanTween.scale(gameObject, Vector3.one, animationDuration)
             .setEase(LeanTweenType.easeOutBack);
@@ -180,7 +186,7 @@ public abstract class Interacteble : MonoBehaviour
                 ushort count = 0;
                 int lastIndex = 0;
 
-                for (int i = 0; i < 5; i++)
+                for (int i = 0; i < 6; i++)
                 {
                     ButtonParent.GetChild(i).gameObject.SetActive(i < lines.Count);
 
@@ -230,7 +236,7 @@ public abstract class Interacteble : MonoBehaviour
 
     public void Click(int index)
     {
-        for (int i = 0; i < 5; i++)
+        for (int i = 0; i < 6; i++)
         {
             ButtonParent.GetChild(i).gameObject.SetActive(false);
         }

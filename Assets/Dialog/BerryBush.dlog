@@ -198,14 +198,6 @@
             "OutputCapacity": 0
         },
         {
-            "Input": "3150f64b-9087-4b32-ad3b-c43213eb7a4a",
-            "Output": "0dc32926-3db5-435a-9e75-303deb78bbcb",
-            "InputPort": "d466293f-343f-49b1-a563-dea6a0bed683",
-            "OutputPort": "63e1d9b4-5432-4225-bc1b-0002aff8f4c5",
-            "InputCapacity": 1,
-            "OutputCapacity": 1
-        },
-        {
             "Input": "b94e534a-dbe7-464b-844d-0fc927d4886b",
             "Output": "0dc32926-3db5-435a-9e75-303deb78bbcb",
             "InputPort": "438527e3-bb1b-42a7-aa14-a833ee9dcf8d",
@@ -218,6 +210,14 @@
             "Output": "98add873-922c-43ab-a663-6296c8a9a58d",
             "InputPort": "e8242f20-6cb2-401e-9305-290c112e3b52",
             "OutputPort": "cccd5a60-1346-4824-ba7f-b373fcd73491",
+            "InputCapacity": 1,
+            "OutputCapacity": 1
+        },
+        {
+            "Input": "3150f64b-9087-4b32-ad3b-c43213eb7a4a",
+            "Output": "0dc32926-3db5-435a-9e75-303deb78bbcb",
+            "InputPort": "d466293f-343f-49b1-a563-dea6a0bed683",
+            "OutputPort": "63e1d9b4-5432-4225-bc1b-0002aff8f4c5",
             "InputCapacity": 1,
             "OutputCapacity": 1
         }
