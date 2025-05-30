@@ -146,10 +146,10 @@
             "DrawState": {
                 "Position": {
                     "serializedVersion": "2",
-                    "x": 1062.0,
-                    "y": 119.00003814697266,
-                    "width": 63.9998779296875,
-                    "height": 41.999961853027347
+                    "x": 1095.0,
+                    "y": 160.0,
+                    "width": 64.0,
+                    "height": 42.0
                 },
                 "Expanded": true
             },
@@ -718,10 +718,10 @@
             "DrawState": {
                 "Position": {
                     "serializedVersion": "2",
-                    "x": 1084.0,
-                    "y": 172.00001525878907,
+                    "x": 1095.0,
+                    "y": 202.0,
                     "width": 64.0,
-                    "height": 42.000030517578128
+                    "height": 42.0
                 },
                 "Expanded": true
             },
@@ -1372,7 +1372,7 @@
                 },
                 "Expanded": true
             },
-            "NodeData": "{\"lines\":\"[{\\\"Line\\\":\\\"<shake>CRASH</crash>\\\",\\\"PortGuidA\\\":\\\"d49da168-2990-4ecc-92b2-e2245db1cee9\\\",\\\"PortGuidB\\\":\\\"9f900498-718f-45f3-bcd7-5eda70e3859f\\\",\\\"PortGuidC\\\":\\\"77d5cfd4-ae25-4483-a6d8-795a24a78faf\\\"}]\"}",
+            "NodeData": "{\"lines\":\"[{\\\"Line\\\":\\\"<shake>CRASH</shake>\\\",\\\"PortGuidA\\\":\\\"d49da168-2990-4ecc-92b2-e2245db1cee9\\\",\\\"PortGuidB\\\":\\\"9f900498-718f-45f3-bcd7-5eda70e3859f\\\",\\\"PortGuidC\\\":\\\"77d5cfd4-ae25-4483-a6d8-795a24a78faf\\\"}]\"}",
             "PortData": [
                 "a6c827df-2ca3-4d93-b479-fe049bdd051c",
                 "23a9245f-7722-40cb-81d2-ff751d43d317",
@@ -2016,14 +2016,6 @@
             "Output": "8d8026b6-2e41-4b66-9b3e-e6af4742a331",
             "InputPort": "c1cdfe29-07b5-4dd6-a120-1f48517250ea",
             "OutputPort": "bf6f32f4-94f7-4821-8e16-99d3ef3f7a1b",
-            "InputCapacity": 1,
-            "OutputCapacity": 1
-        },
-        {
-            "Input": "fa294894-d8b3-4d8b-a2df-3ad24cd04f5e",
-            "Output": "8d8026b6-2e41-4b66-9b3e-e6af4742a331",
-            "InputPort": "c1cdfe29-07b5-4dd6-a120-1f48517250ea",
-            "OutputPort": "c24295e6-830b-4f8e-bbbb-af7d2354c108",
             "InputCapacity": 1,
             "OutputCapacity": 1
         },

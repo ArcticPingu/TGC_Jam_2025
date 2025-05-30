@@ -3,6 +3,7 @@ using DialogueGraph.Runtime;
 using TMPro;
 using UnityEngine;
 using UnityEngine.EventSystems;
+using UnityEngine.InputSystem;
 using UnityEngine.UI;
 
 public abstract class Interacteble : MonoBehaviour
@@ -220,7 +221,11 @@ public abstract class Interacteble : MonoBehaviour
                 }
                 else
                 {
-                    EventSystem.current.SetSelectedGameObject(ButtonParent.GetChild(0).gameObject);
+                    
+                    if (Gamepad.current != null && Gamepad.current.wasUpdatedThisFrame)
+                    {
+                        EventSystem.current.SetSelectedGameObject(ButtonParent.GetChild(0).gameObject);
+                    }
                 }
 
             }
@@ -253,7 +258,7 @@ public abstract class Interacteble : MonoBehaviour
     }
     public void ActionPoint()
     {
-        GameManager.Instance.currentActionPoints--;
+        GameManager.Instance.SpendPoint(1);
     }
     
     public void Continue()

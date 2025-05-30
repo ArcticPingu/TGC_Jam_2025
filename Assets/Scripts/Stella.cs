@@ -51,7 +51,7 @@ public class Stella : Interacteble
     }
     public bool RepairedGate(string id)
     {
-        return InventoryManager.Instance.flags.Contains("repairedgate");
+        return InventoryManager.Instance.flags.Contains("closeddoor");
     }
 
     public void Generosity()

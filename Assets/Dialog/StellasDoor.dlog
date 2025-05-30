@@ -697,21 +697,21 @@
             ]
         },
         {
-            "GUID": "0a0b3b23-890a-41b3-bfc6-4a5989ecf040",
+            "GUID": "416c66d6-a8e5-4560-a8fa-dfbb1817b1da",
             "Type": "DialogueGraph.PropertyNode",
             "DrawState": {
                 "Position": {
                     "serializedVersion": "2",
-                    "x": -61.0,
-                    "y": 65.0,
+                    "x": -21.0,
+                    "y": 38.0,
                     "width": 200.0,
                     "height": 150.0
                 },
                 "Expanded": true
             },
-            "NodeData": "{\"propertyGuid\":\"1c42e6b2-00c2-4e61-92cf-dcfc851533c4\"}",
+            "NodeData": "{\"propertyGuid\":\"a4bc743d-5943-4db8-975f-c9eb78a098ef\"}",
             "PortData": [
-                "db37d8a8-9cb8-4f5d-89c2-bb39f7309ca9"
+                "f2afada6-e92b-43c2-9825-0690209265f3"
             ]
         }
     ],
@@ -1061,20 +1061,20 @@
             "OutputCapacity": 0
         },
         {
-            "Input": "cf1c986c-5d35-438e-9d54-98bceb6d0e4d",
-            "Output": "0a0b3b23-890a-41b3-bfc6-4a5989ecf040",
-            "InputPort": "d685acf6-4673-4647-951f-3823fc5874fe",
-            "OutputPort": "db37d8a8-9cb8-4f5d-89c2-bb39f7309ca9",
-            "InputCapacity": 0,
-            "OutputCapacity": 1
-        },
-        {
             "Input": "90057ee7-b0e3-4b23-b663-291a37175d1a",
             "Output": "cf1c986c-5d35-438e-9d54-98bceb6d0e4d",
             "InputPort": "6913f7cf-5bc6-43e0-9095-7a22ffbca9d0",
             "OutputPort": "00af26ad-3f18-4e44-9029-7d9ab4b053a2",
             "InputCapacity": 1,
             "OutputCapacity": 0
+        },
+        {
+            "Input": "cf1c986c-5d35-438e-9d54-98bceb6d0e4d",
+            "Output": "416c66d6-a8e5-4560-a8fa-dfbb1817b1da",
+            "InputPort": "d685acf6-4673-4647-951f-3823fc5874fe",
+            "OutputPort": "f2afada6-e92b-43c2-9825-0690209265f3",
+            "InputCapacity": 0,
+            "OutputCapacity": 1
         }
     ],
     "serializedProperties": [

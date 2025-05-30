@@ -17,18 +17,15 @@ public class GameManager : MonoBehaviour
     void Awake()
     {
 
-        if (Instance == null)
-        {
-            DontDestroyOnLoad(gameObject);
-            Instance = this;
-        }
-        else
+        if (Instance != null)
         {
             Destroy(gameObject);
         }
+        
+        Instance = this;
 
         keys.Add("default");
-
+        BerryBush.index = 0;
 
         if (skipIntro)
             FindAnyObjectByType<StoryCanvas>().SkipIntro();
