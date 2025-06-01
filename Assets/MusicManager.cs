@@ -16,13 +16,13 @@ public class MusicManager : MonoBehaviour
         }
         else
         {
-            time += Time.deltaTime;
+            time -= Time.deltaTime;
         }
     }
 
     private void PlayMusic()
     {
-        time = Random.Range(55f, 80f);
+        time = Random.Range(55f, 100f);
         GetComponent<AudioSource>().Play();
     }
 

@@ -1,5 +1,7 @@
+using System;
 using System.Collections.Generic;
 using DialogueGraph.Runtime;
+using Mono.Cecil.Cil;
 using TMPro;
 using UnityEngine;
 using UnityEngine.EventSystems;
@@ -12,25 +14,36 @@ public abstract class Interacteble : MonoBehaviour
 
     protected GameObject PlayerContainer;
     protected GameObject NpcContainer;
-    protected Transform ButtonParent;
+    protected GameObject CodeContainer;
+    protected Transform PlayerButtonParent;
+    protected Transform CodeButtonParent;
+
     protected TMP_Text PlayerText;
     protected TMP_Text NpcText;
     protected TMP_Text NpcName;
+    protected TMP_Text CodeText;
     protected Image npcImage;
 
     public PlayerController talker;
 
     protected bool isInConversation = false;
-    protected bool showPlayer;
+    public  ShowField showPlayer;
     protected bool isPlayerChoosing;
     protected bool shouldShowText;
     protected bool showingText;
     protected string textToShow;
+    [SerializeField] private bool skipPlayerText;
 
     public string CostId;
     public bool interactable;
 
-    protected
+    [Serializable]
+    public enum ShowField
+    {
+        player,
+        npc,
+        code,
+    }
     void Awake()
     {
         foreach (var item in FindObjectsByType<Interacter>(FindObjectsSortMode.None))
@@ -45,11 +58,14 @@ public abstract class Interacteble : MonoBehaviour
     {
         PlayerContainer = DialogRefHolder.Instance.PlayerContainer;
         NpcContainer = DialogRefHolder.Instance.NpcContainer;
-        ButtonParent = DialogRefHolder.Instance.ButtonParent;
+        PlayerButtonParent = DialogRefHolder.Instance.PlayerButtonParent;
+        CodeButtonParent = DialogRefHolder.Instance.CodeButtonParent;
         PlayerText = DialogRefHolder.Instance.PlayerText;
         NpcText = DialogRefHolder.Instance.NpcText;
         NpcName = DialogRefHolder.Instance.NpcName;
         npcImage = DialogRefHolder.Instance.npcImage;
+        CodeContainer = DialogRefHolder.Instance.CodeContainer;
+        CodeText = DialogRefHolder.Instance.CodeText;
     }
 
     void OnDestroy()
@@ -68,11 +84,14 @@ public abstract class Interacteble : MonoBehaviour
         DialogueSystem.ResetConversation();
         isInConversation = true;
 
-        (showPlayer ? PlayerContainer : NpcContainer).SetActive(true);
-
         talker = player;
 
         talker.canMove = false;
+
+        if (DialogueSystem.IsCurrentNpc())
+        {
+            showPlayer = ShowField.npc;
+        }
     }
 
 
@@ -122,11 +141,25 @@ public abstract class Interacteble : MonoBehaviour
 
         if (shouldShowText)
         {
-            (showPlayer ? PlayerContainer : NpcContainer).SetActive(true);
-            (showPlayer ? PlayerText : NpcText).gameObject.SetActive(true);
-
-            (showPlayer ? PlayerText : NpcText).text = textToShow;
-            (showPlayer ? PlayerText : NpcText).GetComponent<TextAnimator>().ForceParseLocal();
+            switch (showPlayer)
+            {
+                case ShowField.player:
+                    PlayerContainer.SetActive(true);
+                    PlayerText.gameObject.SetActive(true);
+                    PlayerText.text = textToShow;
+                    PlayerText.GetComponent<TextAnimator>().ForceParseLocal();
+                    break;
+                case ShowField.npc:
+                    NpcContainer.SetActive(true);
+                    NpcText.gameObject.SetActive(true);
+                    NpcText.text = textToShow;
+                    NpcText.GetComponent<TextAnimator>().ForceParseLocal();
+                    break;
+                case ShowField.code:
+                    CodeContainer.SetActive(true);
+                    CodeText.text = textToShow;
+                    break;
+            }
 
             showingText = true;
             shouldShowText = false;
@@ -136,9 +169,27 @@ public abstract class Interacteble : MonoBehaviour
         {
             if (DialogueSystem.IsConversationDone())
             {
+                switch (showPlayer)
+                {
+                    case ShowField.player:
+                        PlayerText.text = "";
+                        textToShow = "";
+                        PlayerContainer.SetActive(false);
+
+                        break;
+                    case ShowField.npc:
+                        textToShow = "";
+                        NpcText.text = "";
+                        NpcContainer.SetActive(false);
+
+                        break;
+                    case ShowField.code:
+                        CodeContainer.SetActive(false);
+                        break;
+                }
+
                 // Reset state
                 isInConversation = false;
-                showPlayer = false;
                 isPlayerChoosing = false;
                 shouldShowText = false;
                 showingText = false;
@@ -157,10 +208,10 @@ public abstract class Interacteble : MonoBehaviour
             bool isNpc = DialogueSystem.IsCurrentNpc();
             if (isNpc)
             {
+                
                 var currentActor = DialogueSystem.GetCurrentActor();
                 Actor container = (Actor)currentActor.CustomData;
                 npcImage.sprite = container.sprite;
-                showPlayer = false;
                 shouldShowText = true;
                 Debug.Log(currentActor);
                 NpcName.text = currentActor.Name;
@@ -169,14 +220,28 @@ public abstract class Interacteble : MonoBehaviour
             else
             {
                 isPlayerChoosing = true;
-                PlayerContainer.SetActive(true);
+
+                Transform ButtonParent;
+
+                if (showPlayer == ShowField.code)
+                {
+                    CodeContainer.SetActive(true);
+                    ButtonParent = CodeButtonParent;
+                }
+                else
+                {
+                    PlayerContainer.SetActive(true);
+                    ButtonParent = PlayerButtonParent;
+                }
+                
 
                 List<ConversationLine> lines = DialogueSystem.GetCurrentLines();
 
                 ushort count = 0;
                 int lastIndex = 0;
 
-                for (int i = 0; i < 6; i++)
+
+                for (int i = 0; i < 10; i++)
                 {
                     ButtonParent.GetChild(i).gameObject.SetActive(i < lines.Count);
 
@@ -201,7 +266,6 @@ public abstract class Interacteble : MonoBehaviour
                                 ButtonParent.GetChild(i).GetComponent<FutureNeedle>().showFuture = true;
                             }
 
-                            Debug.Log(item);
                         }
 
                         // 
@@ -209,9 +273,10 @@ public abstract class Interacteble : MonoBehaviour
                         button.onClick.RemoveAllListeners(); // Remove existing listeners
                         int index = i;
                         button.onClick.AddListener(() => Click(index));
-                        Debug.Log(i);
 
                         lastIndex = i;
+                        PlayerText.GetComponent<TextAnimator>().ForceParseLocal();
+
                     }
                 }
 
@@ -221,10 +286,15 @@ public abstract class Interacteble : MonoBehaviour
                 }
                 else
                 {
-                    
+
                     if (Gamepad.current != null && Gamepad.current.wasUpdatedThisFrame)
                     {
                         EventSystem.current.SetSelectedGameObject(ButtonParent.GetChild(0).gameObject);
+                        Debug.Log("Controller Select");
+                    }
+                    else
+                    {
+                        EventSystem.current.SetSelectedGameObject(null);
                     }
                 }
 
@@ -234,15 +304,35 @@ public abstract class Interacteble : MonoBehaviour
 
     public void Click(int index)
     {
-        for (int i = 0; i < 6; i++)
+        for (int i = 0; i < 10; i++)
         {
-            ButtonParent.GetChild(i).gameObject.SetActive(false);
+            PlayerButtonParent.GetChild(i).gameObject.SetActive(false);
+            CodeButtonParent.GetChild(i).gameObject.SetActive(false);
         }
 
-        textToShow = DialogueSystem.ProgressSelf(index);
         isPlayerChoosing = false;
         shouldShowText = true;
-        showPlayer = true;
+
+        if (skipPlayerText)
+        {
+            if (showPlayer == ShowField.code)
+            {
+                textToShow += DialogueSystem.ProgressSelf(index) + " ";
+                showingText = true;
+                Update();
+            }
+            else
+            {
+                DialogueSystem.ProgressSelf(index);
+            }
+            
+            Continue();
+        }
+        else
+        {
+            
+            textToShow = DialogueSystem.ProgressSelf(index);
+        }
     }
 
     public bool meetBefore;
@@ -260,21 +350,79 @@ public abstract class Interacteble : MonoBehaviour
     {
         GameManager.Instance.SpendPoint(1);
     }
-    
+
     public void Continue()
     {
         if (!showingText)
             return;
-            
-        if (TextAnimator.animating)
-            {
-                TextAnimator.animator.Finish();
-                return;
-            }
+
+        if (TextAnimator.animating && !skipPlayerText)
+        {
+            TextAnimator.animator.Finish();
+            Debug.Log("SkippedAnimation");
+            return;
+        }
+
+        Debug.Log("continue");
+
 
         showingText = false;
-        (showPlayer ? PlayerContainer : NpcContainer).SetActive(false);
-        (showPlayer ? PlayerText : NpcText).gameObject.SetActive(false);
+
+        ShowField nextShowPlayer;
+
+        if (!DialogueSystem.IsConversationDone() && DialogueSystem.IsCurrentNpc())
+        {
+            nextShowPlayer = ShowField.npc;
+        }
+        else
+        {
+            if (skipPlayerText)
+            {
+                nextShowPlayer = ShowField.code;
+            }
+            else
+            {
+                nextShowPlayer = ShowField.player;
+            }
+        }
+
+        if (DialogueSystem.IsConversationDone() || nextShowPlayer != showPlayer)
+        {
+            switch (showPlayer)
+            {
+                case ShowField.player:
+                    PlayerText.text = "";
+                    textToShow = "";
+                    PlayerContainer.SetActive(false);
+
+                    break;
+                case ShowField.npc:
+                    textToShow = "";
+                    NpcText.text = "";
+                    NpcContainer.SetActive(false);
+
+                    break;
+                case ShowField.code:
+                    CodeContainer.SetActive(false);
+                    Debug.Log("code hide");
+                    break;
+            }
+        }
+
+        showPlayer = nextShowPlayer;
+
+        Update();
+    }
+
+    public void ActivateSkip()
+    {
+        skipPlayerText = true;
+    }
+
+    public void DeactivateSkip()
+    {
+        skipPlayerText = false;
+        CodeText.text = "";
     }
 
 

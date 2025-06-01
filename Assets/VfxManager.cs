@@ -22,6 +22,7 @@ public class VfxManager : MonoBehaviour
 
     public void PlayUIClick()
     {
+        Debug.Log("Click");
         UI.PlayOneShot(uiClick[Random.Range(0,uiClick.Length)]);
     }
 }

@@ -37,7 +37,6 @@ public class TextAnimator : MonoBehaviour
     {
         visibleCharacterCount = 0;
         textMesh.maxVisibleCharacters = 0;
-        Debug.Log("New Text");
         originalText = textMesh.text;
         ParseTags();
         StartCoroutine(RevealTextCoroutine());
@@ -135,9 +134,16 @@ public class TextAnimator : MonoBehaviour
     {
         AnimateText();
     }
-    
+
     void AnimateText()
     {
+        if (!gameObject.activeInHierarchy) return;
+        if (!textMesh.IsActive()) return;
+
+        if (textMesh.textInfo.characterCount == 0)
+            return;
+
+
         TMP_TextInfo textInfo = textMesh.textInfo;
         textMesh.ForceMeshUpdate();
         textInfo = textMesh.textInfo;
@@ -187,5 +193,18 @@ public class TextAnimator : MonoBehaviour
             textInfo.meshInfo[i].mesh.vertices = textInfo.meshInfo[i].vertices;
             textMesh.UpdateGeometry(textInfo.meshInfo[i].mesh, i);
         }
+    }
+
+    void OnEnable()
+    {
+        originalText = "";
+        StartCoroutine(DelayedForceUpdate());
+    }
+
+    IEnumerator DelayedForceUpdate()
+    {
+        yield return null; // Wait one frame
+        textMesh.ForceMeshUpdate(); // Rebuild mesh info
+        AnimateText(); // Now mesh data will be correct
     }
 }

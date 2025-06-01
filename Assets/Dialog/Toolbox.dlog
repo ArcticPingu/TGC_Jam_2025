@@ -49,10 +49,10 @@
             "DrawState": {
                 "Position": {
                     "serializedVersion": "2",
-                    "x": 849.0,
-                    "y": 143.99998474121095,
+                    "x": 769.0,
+                    "y": 152.0,
                     "width": 394.0,
-                    "height": 176.00001525878907
+                    "height": 176.00003051757813
                 },
                 "Expanded": true
             },
@@ -73,10 +73,10 @@
             "DrawState": {
                 "Position": {
                     "serializedVersion": "2",
-                    "x": 1335.6522216796875,
-                    "y": 223.478271484375,
-                    "width": 200.0,
-                    "height": 150.0
+                    "x": 1256.0001220703125,
+                    "y": 231.0,
+                    "width": 134.0,
+                    "height": 42.0
                 },
                 "Expanded": true
             },
@@ -91,10 +91,10 @@
             "DrawState": {
                 "Position": {
                     "serializedVersion": "2",
-                    "x": 733.0,
-                    "y": 255.00001525878907,
-                    "width": 65.00006103515625,
-                    "height": 41.99998474121094
+                    "x": 524.0,
+                    "y": 299.0,
+                    "width": 184.0,
+                    "height": 41.999969482421878
                 },
                 "Expanded": true
             },
@@ -109,10 +109,10 @@
             "DrawState": {
                 "Position": {
                     "serializedVersion": "2",
-                    "x": 1336.0,
-                    "y": 265.0,
+                    "x": 1256.0001220703125,
+                    "y": 273.0,
                     "width": 64.0,
-                    "height": 42.000030517578128
+                    "height": 42.0
                 },
                 "Expanded": true
             },
@@ -175,7 +175,7 @@
         },
         {
             "Type": "DialogueGraph.CheckProperty",
-            "Data": "{\"$type\":\"DialogueGraph.CheckProperty, DialogueGraph.Editor\",\"GUID\":\"b644418d-7f71-4c17-a679-0ffde9bf1441\",\"Type\":1,\"DisplayName\":\"once\",\"ReferenceName\":\"Check_5745B20E\",\"OverrideReferenceName\":null,\"Hidden\":false,\"ShortGuid\":\"5745B20E\"}"
+            "Data": "{\"$type\":\"DialogueGraph.CheckProperty, DialogueGraph.Editor\",\"GUID\":\"b644418d-7f71-4c17-a679-0ffde9bf1441\",\"Type\":1,\"DisplayName\":\"hasScrewdriverInToolbox\",\"ReferenceName\":\"Check_5745B20E\",\"OverrideReferenceName\":null,\"Hidden\":false,\"ShortGuid\":\"5745B20E\"}"
         },
         {
             "Type": "DialogueGraph.TriggerProperty",

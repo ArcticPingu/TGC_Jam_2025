@@ -21,7 +21,7 @@ public class GameManager : MonoBehaviour
         {
             Destroy(gameObject);
         }
-        
+
         Instance = this;
 
         keys.Add("default");
@@ -65,9 +65,9 @@ public class GameManager : MonoBehaviour
             {
                 item.interactable = false;
             }
-        }
 
-        FindAnyObjectByType<StoryCanvas>().SadEnd();
+            FindAnyObjectByType<StoryCanvas>().SadEnd();
+        }
     }
 
     public void Generosity()

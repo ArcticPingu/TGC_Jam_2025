@@ -22,12 +22,9 @@ public class ButtonHoverEffect : MonoBehaviour, IPointerEnterHandler, IPointerEx
         
         if(cursorImage != null)
             cursorImage.enabled = false;
-
-        if(clickAudio)
-        {
-            GetComponent<Button>().onClick.AddListener(() => VfxManager.Instance.PlayUIClick());
-        }
     }
+    
+
 
     public void OnPointerEnter(PointerEventData eventData)
     {
@@ -41,20 +38,20 @@ public class ButtonHoverEffect : MonoBehaviour, IPointerEnterHandler, IPointerEx
             case ButtonEffectType.Expand:
                 // Use LeanTween to scale the button up smoothly
                 LeanTween.scale(gameObject, _originalScale * scaleFactor, scaleDuration).setEaseOutBack();
-            break;
+                break;
 
             case ButtonEffectType.Programmer:
                 _textAsset.text = _textAsset.text.Substring(2);
                 _textAsset.text = "> " + _textAsset.text;
-            break;
+                break;
 
             case ButtonEffectType.ShowCursor:
                 cursorImage.enabled = true;
-            break;
+                break;
 
             default:
                 Debug.Log("Choose an effect, please.");
-            break;
+                break;
         }
 
         if (hoverAudio)
@@ -122,6 +119,11 @@ public class ButtonHoverEffect : MonoBehaviour, IPointerEnterHandler, IPointerEx
 
     void OnEnable()
     {
+        if (clickAudio)
+        {
+            GetComponent<Button>().onClick.AddListener(() => VfxManager.Instance.PlayUIClick());
+        }
+
         if (_originalScale.magnitude == 0)
         {
             return;
