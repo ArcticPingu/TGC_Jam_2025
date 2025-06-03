@@ -8,18 +8,16 @@ Material:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: grass
-  m_Shader: {fileID: 4800000, guid: 0ca6dca7396eb48e5849247ffd444914, type: 3}
+  m_Shader: {fileID: -6465566751694194690, guid: a3469e66820b27e48a80c494794e24fe, type: 3}
   m_Parent: {fileID: 0}
   m_ModifiedSerializedProperties: 0
-  m_ValidKeywords:
-  - _ALPHATEST_ON
+  m_ValidKeywords: []
   m_InvalidKeywords: []
   m_LightmapFlags: 4
   m_EnableInstancingVariants: 0
   m_DoubleSidedGI: 0
-  m_CustomRenderQueue: 2450
-  stringTagMap:
-    RenderType: TransparentCutout
+  m_CustomRenderQueue: -1
+  stringTagMap: {}
   disabledShaderPasses:
   - MOTIONVECTORS
   m_LockedProperties: 
@@ -93,7 +91,7 @@ Material:
     - _BumpScale: 1
     - _ClearCoatMask: 0
     - _ClearCoatSmoothness: 0
-    - _Clip: 0
+    - _Clip: 0.1
     - _Cull: 2
     - _Cutoff: 0.215
     - _DetailAlbedoMapScale: 1
@@ -127,6 +125,8 @@ Material:
     - _tree_sway_speed: 1
     - _tree_sway_stutter: 1.5
     - _tree_sway_stutter_influence: 0.2
+    - _windSpeed: 0.7
+    - _windStrenght: 0.5
     - _wind_size: 15
     m_Colors:
     - _BaseColor: {r: 1, g: 1, b: 1, a: 1}
