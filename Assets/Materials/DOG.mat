@@ -45,6 +45,7 @@ Material:
     - _Clip: -0.18
     - _QueueControl: 0
     - _QueueOffset: 0
+    - _TransparencyMult: 0.4
     m_Colors: []
   m_BuildTextureStacks: []
   m_AllowLocking: 1
