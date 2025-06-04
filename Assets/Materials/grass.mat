@@ -126,7 +126,7 @@ Material:
     - _tree_sway_stutter: 1.5
     - _tree_sway_stutter_influence: 0.2
     - _windSpeed: 0.7
-    - _windStrenght: 0.5
+    - _windStrenght: 0.7
     - _wind_size: 15
     m_Colors:
     - _BaseColor: {r: 1, g: 1, b: 1, a: 1}
