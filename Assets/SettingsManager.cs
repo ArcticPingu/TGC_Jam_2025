@@ -17,6 +17,19 @@ public class SettingsManager : MonoBehaviour
     public void LoadSettings()
     {
         SceneManager.LoadScene("Settings", LoadSceneMode.Additive);
+        
+        var settingsCanvas = FindAnyObjectByType<SettinsCanvas>();
+        
+        if (settingsCanvas != null)
+        {
+            Canvas canvas = settingsCanvas.GetComponent<Canvas>();
+            if (canvas != null)
+            {
+                canvas.renderMode = RenderMode.ScreenSpaceCamera;
+                canvas.worldCamera = Camera.main;
+            }
+        }
+
     }
     public void UnloadScene()
     {

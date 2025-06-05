@@ -7,13 +7,18 @@
     <link rel="shortcut icon" href="TemplateData/favicon.ico">
     <link rel="stylesheet" href="TemplateData/style.css">
     <style>
-      body {
+      html, body {
         margin: 0;
+        padding: 0;
+        height: 100%;
+        overflow: hidden;
         background: linear-gradient(135deg, #fdf6f0, #e3dcd2);
         font-family: 'Segoe UI', sans-serif;
       }
       #unity-container {
-        position: relative;
+        position: fixed;
+        top: 0;
+        left: 0;
         width: 100vw;
         height: 100vh;
         display: flex;
@@ -42,6 +47,7 @@
         align-items: center;
         font-size: 0.9rem;
         color: #4a4a4a;
+        z-index: 10;
       }
       #unity-fullscreen-button {
         cursor: pointer;
@@ -51,7 +57,6 @@
         box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
         transition: background 0.3s;
         font-weight: bold;
-
       }
       #unity-fullscreen-button:hover {
         background: #627e4f;
@@ -67,7 +72,7 @@
           <div id="unity-progress-bar-full"></div>
         </div>
       </div>
-      <div id="unity-warning"> </div>
+      <div id="unity-warning"></div>
       <div id="unity-footer">
         <div id="unity-fullscreen-button">Fullscreen</div>
       </div>
@@ -97,23 +102,31 @@
       var loaderUrl = buildUrl + "/Build_Web.loader.js";
       var config = {
         arguments: [],
-        dataUrl: buildUrl + "/Build_Web.data.br",
-        frameworkUrl: buildUrl + "/Build_Web.framework.js.br",
-        codeUrl: buildUrl + "/Build_Web.wasm.br",
+        dataUrl: buildUrl + "/Build_Web.data",
+        frameworkUrl: buildUrl + "/Build_Web.framework.js",
+        codeUrl: buildUrl + "/Build_Web.wasm",
         streamingAssetsUrl: "StreamingAssets",
-        companyName: "CozyGameStudio",
-        productName: "Cozy Puzzle",
-        productVersion: "1.0.0",
+        companyName: "ArcticPingu",
+        productName: "Not to much!",
+        productVersion: "gameJam-0.20.0",
         showBanner: unityShowBanner,
       };
 
-      if (/iPhone|iPad|iPod|Android/i.test(navigator.userAgent)) {
-        var meta = document.createElement('meta');
+      // Safari-specific fix: set viewport to fill the screen correctly
+      const isIOS = /iPad|iPhone|iPod/.test(navigator.userAgent);
+      const isSafari = /^((?!chrome|android).)*safari/i.test(navigator.userAgent);
+
+      if (isIOS || isSafari) {
+        const meta = document.createElement('meta');
         meta.name = 'viewport';
-        meta.content = 'width=device-width, height=device-height, initial-scale=1.0, user-scalable=no, shrink-to-fit=yes';
-        document.getElementsByTagName('head')[0].appendChild(meta);
+        meta.content = 'width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no';
+        document.head.appendChild(meta);
+      }
+
+      if (/iPhone|iPad|iPod|Android/i.test(navigator.userAgent)) {
         document.querySelector("#unity-container").className = "unity-mobile";
         canvas.className = "unity-mobile";
+        window.scrollTo(0, 1); // hide address bar on load
       } else {
         canvas.style.width = "100%";
         canvas.style.height = "100%";
@@ -142,55 +155,6 @@
         });
       };
       document.body.appendChild(script);
-
-          // Improved Unity WebGL mobile experience for itch.io
-(function() {
-  const canvas = document.querySelector("#unity-canvas");
-  const unityContainer = document.querySelector("#unity-container");
-
-  // Utility to detect mobile devices
-  const isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
-
-  if (isMobile) {
-    // Add responsive viewport meta tag
-    const meta = document.createElement('meta');
-    meta.name = 'viewport';
-    meta.content = 'width=device-width, height=device-height, initial-scale=1.0, maximum-scale=1.0, user-scalable=no';
-    document.head.appendChild(meta);
-
-    // Enable fullscreen automatically when in landscape
-    window.addEventListener("orientationchange", () => {
-      setTimeout(() => {
-        if (window.orientation === 90 || window.orientation === -90) {
-          requestFullscreen(canvas);
-        }
-      }, 500);
-    });
-
-    // Resize canvas dynamically to fill the screen
-    function resizeCanvas() {
-      canvas.style.width = window.innerWidth + 'px';
-      canvas.style.height = window.innerHeight + 'px';
-    }
-    window.addEventListener("resize", resizeCanvas);
-    resizeCanvas();
-  }
-
-  function requestFullscreen(elem) {
-    if (elem.requestFullscreen) {
-      elem.requestFullscreen();
-    } else if (elem.mozRequestFullScreen) {
-      elem.mozRequestFullScreen();
-    } else if (elem.webkitRequestFullscreen) {
-      elem.webkitRequestFullscreen();
-    } else if (elem.msRequestFullscreen) {
-      elem.msRequestFullscreen();
-    }
-  }
-})();
-
     </script>
-
   </body>
-  
 </html>
