@@ -48,27 +48,26 @@ public class TextBoxManager : MonoBehaviour
 
     private void Update()
     {
-        if (Input.GetMouseButtonDown(0) || auto)
+
+        if (isFillingText && !auto)
         {
-            if (isFillingText && !auto)
-            {
-                // Skip the text fill animation.
-                StopCoroutine("FillText");
-                textBox.text = "";
-                textBox.text = textToDisplay[currentTextIndex];
-                isFillingText = false;
-                StopAllCoroutines();
-            }
-            else
-            {
-                // Display the next text when not filling.
-                if(!isFillingText)
-                {
-                    NextText();
-                }
-                
-            }
+            // Skip the text fill animation.
+            StopCoroutine("FillText");
+            textBox.text = "";
+            textBox.text = textToDisplay[currentTextIndex];
+            isFillingText = false;
+            StopAllCoroutines();
         }
+        else
+        {
+            // Display the next text when not filling.
+            if(!isFillingText)
+            {
+                NextText();
+            }
+            
+        }
+        
     }
 
     public IEnumerator FillText()

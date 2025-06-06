@@ -10,16 +10,16 @@ public class PlayerController : MonoBehaviour
     public float speed = 5f;
     private Vector2 moveInput;
     private Rigidbody rb;
-    private Animator ani;
+    [SerializeField] private Animator spriteAni;
     public bool canMove;
     public AudioClip[] footsteps;
     public AudioSource source;
     private int count;
+    public Vector3 forceMove;
 
     void Awake()
     {
         rb = GetComponent<Rigidbody>();
-        ani = GetComponentInChildren<Animator>();
 
     }
 
@@ -41,12 +41,23 @@ public class PlayerController : MonoBehaviour
         }
 
         // Use physics-based movement (not direct velocity set)
-        rb.AddForce(desiredVelocity - rb.linearVelocity, ForceMode.VelocityChange);
+        if (forceMove == Vector3.zero)
+        {
+            rb.AddForce(desiredVelocity - rb.linearVelocity, ForceMode.VelocityChange);
+        }
+        else
+        {
+            rb.AddForce(forceMove - rb.linearVelocity, ForceMode.VelocityChange);
+        }
+        
 
         // Use actual physics velocity for animation
         Vector3 actualVelocity = rb.linearVelocity;
-        ani.SetFloat("X", actualVelocity.x);
-        ani.SetBool("idle", actualVelocity.magnitude < 0.15f);
+        Debug.Log(actualVelocity);
+        Debug.Log(actualVelocity.magnitude);
+        Debug.Log(actualVelocity.magnitude < 0.15f);
+        spriteAni.SetFloat("X", actualVelocity.x);
+        spriteAni.SetBool("idle", actualVelocity.magnitude < 0.15f);
     }
 
 
