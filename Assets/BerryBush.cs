@@ -11,7 +11,10 @@ public class BerryBush : Interacteble
 
     public bool inOrder()
     {
-        return order[index++] == id;
+        int tmp = index;
+        index++;
+        Debug.Log(tmp);
+        return order[tmp] == id || order[Mathf.Abs(2 - tmp)] == id;
     }
 
     public void Reset()
@@ -26,11 +29,11 @@ public class BerryBush : Interacteble
 
     public bool allDone()
     {
-        if (id == 7 && order[index] == id)
-        {
-            InventoryManager.Instance.flags.Add("puzle1");
-        }
+        return id == 7 && index == 2;
+    }
 
-        return id == 7 && order[index] == id;
+    public bool allDoneReverse()
+    {
+        return id == 1 && index == 2;
     }
 }

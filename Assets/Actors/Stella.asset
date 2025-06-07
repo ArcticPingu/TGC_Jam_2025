@@ -13,3 +13,4 @@ MonoBehaviour:
   m_Name: Stella
   m_EditorClassIdentifier: 
   sprite: {fileID: 21300000, guid: 0dfb4ba64b2ac514db4a69562c4593e3, type: 3}
+  font: {fileID: 11400000, guid: e60649579463f5449ba893845914bc85, type: 2}

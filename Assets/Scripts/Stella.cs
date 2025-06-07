@@ -5,9 +5,12 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.UIElements;
 
+
 public class Stella : Interacteble
 {
     public bool annoyed;
+    public bool codeOnce;
+    public bool needsCode;
     public bool getHasDog()
     {
         return InventoryManager.Instance.hasItem("dog");
@@ -57,5 +60,25 @@ public class Stella : Interacteble
     public void Generosity()
     {
         GameManager.Instance.Generosity();
+    }
+
+    public bool NeedsCode()
+    {
+        return needsCode;
+    }
+
+    public void AddCodeNeed()
+    {
+        needsCode = true;
+    }
+
+    public bool CodeTwice()
+    {
+        if (!codeOnce)
+        {
+            codeOnce = true;
+            return false;
+        }
+        return true;
     }
 }

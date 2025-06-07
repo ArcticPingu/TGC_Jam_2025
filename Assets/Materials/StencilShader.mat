@@ -48,10 +48,10 @@ Material:
     m_Floats:
     - _Boolean: 0
     - _Clip: 0
-    - _Fallof: 0.12
+    - _Fallof: 0.2
     - _QueueControl: 0
     - _QueueOffset: 0
-    - _size: 0.24
+    - _size: 0.33
     m_Colors:
     - _Glow: {r: 2.1185482, g: 1.6737301, b: 0.6095822, a: 0}
     - _PlayerPos: {r: 31.6, g: 3.4, b: -15.2, a: 0}

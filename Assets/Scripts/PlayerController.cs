@@ -53,9 +53,6 @@ public class PlayerController : MonoBehaviour
 
         // Use actual physics velocity for animation
         Vector3 actualVelocity = rb.linearVelocity;
-        Debug.Log(actualVelocity);
-        Debug.Log(actualVelocity.magnitude);
-        Debug.Log(actualVelocity.magnitude < 0.15f);
         spriteAni.SetFloat("X", actualVelocity.x);
         spriteAni.SetBool("idle", actualVelocity.magnitude < 0.15f);
     }

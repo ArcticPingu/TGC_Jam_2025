@@ -644,6 +644,46 @@
             "PortData": [
                 "79626497-c42e-45cf-b891-d705a19d282a"
             ]
+        },
+        {
+            "GUID": "8e22b3eb-6719-4127-a131-b5328c8b4275",
+            "Type": "DialogueGraph.NpcNode",
+            "DrawState": {
+                "Position": {
+                    "serializedVersion": "2",
+                    "x": 2455.000244140625,
+                    "y": 676.0,
+                    "width": 144.999755859375,
+                    "height": 96.0
+                },
+                "Expanded": true
+            },
+            "NodeData": "{\"lines\":\"[{\\\"Line\\\":\\\"Wuff\\\",\\\"PortGuidA\\\":\\\"c0562080-acad-4ba7-96de-8027d05affd2\\\",\\\"PortGuidB\\\":\\\"d7a56ed5-3a66-4be0-9b77-e8a7bf6f27ce\\\",\\\"PortGuidC\\\":\\\"37431edb-0425-4bfc-85fe-b82e4a7834a4\\\"}]\"}",
+            "PortData": [
+                "0e0c6ecf-6c3a-4533-ba23-1bcc77b27893",
+                "7d74c45c-c370-4f4d-862d-b028ece86ea8",
+                "c0562080-acad-4ba7-96de-8027d05affd2",
+                "d7a56ed5-3a66-4be0-9b77-e8a7bf6f27ce",
+                "37431edb-0425-4bfc-85fe-b82e4a7834a4"
+            ]
+        },
+        {
+            "GUID": "114c81eb-8f7a-4eca-b313-61ce9b7372a0",
+            "Type": "DialogueGraph.PropertyNode",
+            "DrawState": {
+                "Position": {
+                    "serializedVersion": "2",
+                    "x": 2321.7392578125,
+                    "y": 676.5217895507813,
+                    "width": 200.0,
+                    "height": 150.0
+                },
+                "Expanded": true
+            },
+            "NodeData": "{\"propertyGuid\":\"9b6ab5fc-c175-40aa-8256-6e35396794a2\"}",
+            "PortData": [
+                "a38e6057-8719-4f02-a9c5-5fe7747e8d84"
+            ]
         }
     ],
     "edges": [
@@ -892,6 +932,22 @@
             "Output": "29ee59db-8d0d-4274-9690-ea57ff67b7ab",
             "InputPort": "a4929fa8-f37e-4eea-a44c-aa5c3ddcee9e",
             "OutputPort": "79626497-c42e-45cf-b891-d705a19d282a",
+            "InputCapacity": 0,
+            "OutputCapacity": 1
+        },
+        {
+            "Input": "8e22b3eb-6719-4127-a131-b5328c8b4275",
+            "Output": "270ed95a-03bf-4894-8d27-7bcac95b62c8",
+            "InputPort": "0e0c6ecf-6c3a-4533-ba23-1bcc77b27893",
+            "OutputPort": "927455d3-373a-4ee9-9315-f039d2c5333b",
+            "InputCapacity": 1,
+            "OutputCapacity": 0
+        },
+        {
+            "Input": "8e22b3eb-6719-4127-a131-b5328c8b4275",
+            "Output": "114c81eb-8f7a-4eca-b313-61ce9b7372a0",
+            "InputPort": "7d74c45c-c370-4f4d-862d-b028ece86ea8",
+            "OutputPort": "a38e6057-8719-4f02-a9c5-5fe7747e8d84",
             "InputCapacity": 0,
             "OutputCapacity": 1
         }

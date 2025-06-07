@@ -211,6 +211,7 @@ public abstract class Interacteble : MonoBehaviour
                 var currentActor = DialogueSystem.GetCurrentActor();
                 Actor container = (Actor)currentActor.CustomData;
                 npcImage.sprite = container.sprite;
+                NpcText.font = container.font;
                 shouldShowText = true;
                 Debug.Log(currentActor);
                 NpcName.text = currentActor.Name;

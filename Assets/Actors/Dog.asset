@@ -13,3 +13,4 @@ MonoBehaviour:
   m_Name: Dog
   m_EditorClassIdentifier: 
   sprite: {fileID: 21300000, guid: 0a34da6f53dddcf47a734a2fd2cc622a, type: 3}
+  font: {fileID: 11400000, guid: 7b66537415da67d43b45bfe5723e5806, type: 2}
