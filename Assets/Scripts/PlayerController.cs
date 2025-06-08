@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -16,6 +17,7 @@ public class PlayerController : MonoBehaviour
     public AudioSource source;
     private int count;
     public Vector3 forceMove;
+    public bool mowing;
 
     void Awake()
     {
@@ -66,10 +68,14 @@ public class PlayerController : MonoBehaviour
         Shader.SetGlobalVector("_PlayerPos", pos);
         Shader.SetGlobalVector("_test", transform.position);
 
+        // if(mowing)
+
     }
 
     public void PlayStep()
     {
         source.PlayOneShot(footsteps[count++%footsteps.Length]);
     }
+
+
 }
