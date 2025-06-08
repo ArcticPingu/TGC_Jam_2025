@@ -7,4 +7,8 @@ public class Map : Interacteble
     {
         map.SetActive(true);
     }
+    public void closeMap()
+    {
+        map.SetActive(false);
+    }
 }
