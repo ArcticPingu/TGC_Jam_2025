@@ -1,5 +1,6 @@
 using System;
 using TMPro;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.Playables;
 using UnityEngine.Rendering.Universal;
@@ -46,10 +47,17 @@ public class StoryCanvas : MonoBehaviour
 
     public void Generosity(int counter)
     {
-        end.SetActive(true);
+        //end.SetActive(true);
         generosityParent.SetActive(true);
-        generosityCounter.text = counter + "/1";
+        generosityCounter.text = counter + "/3";
+
+        Invoke(nameof(CloseCounter), 3);
     }
+
+    private void CloseCounter()
+    {
+        generosityParent.SetActive(false);
+    }   
 
     public void SadEnd()
     {

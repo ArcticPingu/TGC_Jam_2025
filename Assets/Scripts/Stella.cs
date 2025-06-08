@@ -59,6 +59,7 @@ public class Stella : Interacteble
 
     public void Generosity()
     {
+        interactable = false;
         GameManager.Instance.Generosity();
     }
 

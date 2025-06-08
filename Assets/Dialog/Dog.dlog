@@ -684,6 +684,46 @@
             "PortData": [
                 "a38e6057-8719-4f02-a9c5-5fe7747e8d84"
             ]
+        },
+        {
+            "GUID": "ea2a507c-4a6a-41bd-abac-09388ae58e30",
+            "Type": "DialogueGraph.NpcNode",
+            "DrawState": {
+                "Position": {
+                    "serializedVersion": "2",
+                    "x": 2916.0,
+                    "y": 667.0,
+                    "width": 145.0,
+                    "height": 96.0
+                },
+                "Expanded": true
+            },
+            "NodeData": "{\"lines\":\"[{\\\"Line\\\":\\\"If you solve the puzle backwards you get a berry (this text is dumb why would the dog tell you)\\\",\\\"PortGuidA\\\":\\\"b5495c19-0627-4e1e-87a7-d943aff29bba\\\",\\\"PortGuidB\\\":\\\"2a804502-99be-4bbd-a1c5-ec2ac696a077\\\",\\\"PortGuidC\\\":\\\"0477d9f0-0dc0-44d6-bdab-8e8c9020eac5\\\"}]\"}",
+            "PortData": [
+                "637a5b80-9f24-440b-a7eb-9de0ca0a3980",
+                "d2549efd-1c4e-4366-8c3c-a1390631b0b1",
+                "b5495c19-0627-4e1e-87a7-d943aff29bba",
+                "2a804502-99be-4bbd-a1c5-ec2ac696a077",
+                "0477d9f0-0dc0-44d6-bdab-8e8c9020eac5"
+            ]
+        },
+        {
+            "GUID": "cc31c5b5-5f84-4889-9247-da2ad41a49da",
+            "Type": "DialogueGraph.PropertyNode",
+            "DrawState": {
+                "Position": {
+                    "serializedVersion": "2",
+                    "x": 2789.0,
+                    "y": 584.0,
+                    "width": 200.0,
+                    "height": 150.0
+                },
+                "Expanded": true
+            },
+            "NodeData": "{\"propertyGuid\":\"9b6ab5fc-c175-40aa-8256-6e35396794a2\"}",
+            "PortData": [
+                "56b202b1-5ed8-4043-a13b-d514917b344b"
+            ]
         }
     ],
     "edges": [
@@ -948,6 +988,22 @@
             "Output": "114c81eb-8f7a-4eca-b313-61ce9b7372a0",
             "InputPort": "7d74c45c-c370-4f4d-862d-b028ece86ea8",
             "OutputPort": "a38e6057-8719-4f02-a9c5-5fe7747e8d84",
+            "InputCapacity": 0,
+            "OutputCapacity": 1
+        },
+        {
+            "Input": "ea2a507c-4a6a-41bd-abac-09388ae58e30",
+            "Output": "8e22b3eb-6719-4127-a131-b5328c8b4275",
+            "InputPort": "637a5b80-9f24-440b-a7eb-9de0ca0a3980",
+            "OutputPort": "c0562080-acad-4ba7-96de-8027d05affd2",
+            "InputCapacity": 1,
+            "OutputCapacity": 0
+        },
+        {
+            "Input": "ea2a507c-4a6a-41bd-abac-09388ae58e30",
+            "Output": "cc31c5b5-5f84-4889-9247-da2ad41a49da",
+            "InputPort": "d2549efd-1c4e-4366-8c3c-a1390631b0b1",
+            "OutputPort": "56b202b1-5ed8-4043-a13b-d514917b344b",
             "InputCapacity": 0,
             "OutputCapacity": 1
         }

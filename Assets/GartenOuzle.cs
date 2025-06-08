@@ -80,6 +80,20 @@ public class GartenOuzle : MonoBehaviour
         gartenGate.interactable = true;
     }
 
+    public void Clean()
+    {
+        for (int i = 0; i < 4; i++)
+        {
+            for (int j = 0; j < 4; j++)
+            {
+                if (grassObjects[i][j] != null)
+                {
+                    Destroy(grassObjects[i][j]);
+                }
+            }
+        }
+    }
+
     int lastI;
     int lastJ;
     public bool won;

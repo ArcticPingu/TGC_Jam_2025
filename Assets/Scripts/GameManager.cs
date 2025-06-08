@@ -72,6 +72,7 @@ public class GameManager : MonoBehaviour
 
     public void Generosity()
     {
+        generosityCounter++;
         FindAnyObjectByType<StoryCanvas>().Generosity(generosityCounter);
     }
 }
