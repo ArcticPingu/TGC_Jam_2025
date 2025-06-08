@@ -515,6 +515,7 @@ MonoBehaviour:
   footsteps: []
   source: {fileID: 0}
   forceMove: {x: 0, y: 0, z: 0}
+  mowing: 0
 --- !u!114 &242540714
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4441,6 +4442,7 @@ MonoBehaviour:
   skipPlayerText: 0
   CostId: 
   interactable: 0
+  emotionIndex: 0
   animationDuration: 0.1
   meetBefore: 0
   annoyed: 0
