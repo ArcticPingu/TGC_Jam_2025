@@ -3,10 +3,11 @@ using UnityEngine;
 public class GartenGate : Interacteble
 {
     public GartenOuzle puzzle;
-    bool interacteble = true;
+    bool interactebleCollsion = true;
+
     void OnCollisionEnter(Collision collision)
     {
-        if (!interacteble)
+        if (!interactebleCollsion)
             return;
 
         Debug.Log("garten Enter");
@@ -15,7 +16,7 @@ public class GartenGate : Interacteble
 
     public void StartPuzle()
     {
-        interactable = true;
+        interactebleCollsion = true;
         puzzle.StartPuzzle();
     }
 

@@ -19,6 +19,7 @@ public class PlayerController : MonoBehaviour
     public Vector3 forceMove;
     public bool mowing;
 
+
     void Awake()
     {
         rb = GetComponent<Rigidbody>();
@@ -35,7 +36,7 @@ public class PlayerController : MonoBehaviour
     void FixedUpdate()
     {
         Vector3 moveDirection = new Vector3(moveInput.x, 0, moveInput.y).normalized;
-        Vector3 desiredVelocity = moveDirection * speed;
+        Vector3 desiredVelocity = moveDirection * (mowing ? 2: speed);
 
         if (!canMove)
         {
@@ -51,12 +52,13 @@ public class PlayerController : MonoBehaviour
         {
             rb.AddForce(forceMove - rb.linearVelocity, ForceMode.VelocityChange);
         }
-        
+
 
         // Use actual physics velocity for animation
         Vector3 actualVelocity = rb.linearVelocity;
         spriteAni.SetFloat("X", actualVelocity.x);
         spriteAni.SetBool("idle", actualVelocity.magnitude < 0.15f);
+        spriteAni.SetBool("mowing", mowing);
     }
 
 
@@ -67,8 +69,6 @@ public class PlayerController : MonoBehaviour
 
         Shader.SetGlobalVector("_PlayerPos", pos);
         Shader.SetGlobalVector("_test", transform.position);
-
-        // if(mowing)
 
     }
 

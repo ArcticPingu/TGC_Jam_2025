@@ -1,3 +1,4 @@
+using Unity.Cinemachine;
 using UnityEngine;
 using UnityEngine.Tilemaps;
 
@@ -7,8 +8,12 @@ public class GartenOuzle : MonoBehaviour
     private Vector3[][] positions = new Vector3[4][];
     private GameObject[][] grassObjects = new GameObject[4][];
     public Tilemap tilemap;
-    public Tile grass;
+    public Tile dirt;
     public GameObject grassObject;
+    public GartenGate gartenGate;
+
+    public bool startedGame;
+    public CinemachineFollow cinemachine;
 
     void Awake()
     {
@@ -27,19 +32,7 @@ public class GartenOuzle : MonoBehaviour
             for (int j = 0; j < 4; j++)
             {
                 positions[i][j] = transform.position + new Vector3(i, 0, j - 0.25f);
-                Instantiate(grassObject, new Vector3(positions[i][j].x, 0, positions[i][j].z), Quaternion.identity);
-            }
-        }
-
-        // Set tiles
-        for (int i = 0; i < 4; i++)
-        {
-            for (int j = 0; j < 4; j++)
-            {
-                tilemap.SetTile(
-                    new Vector3Int(Mathf.CeilToInt(positions[i][j].x) - 1, Mathf.CeilToInt(positions[i][j].z) - 1, 0),
-                    grass
-                );
+                grassObjects[i][j] = Instantiate(grassObject, new Vector3(positions[i][j].x, 0.2f, positions[i][j].z), Quaternion.identity);
             }
         }
     }
@@ -47,6 +40,95 @@ public class GartenOuzle : MonoBehaviour
 
     public void StartPuzzle()
     {
-        // player
+        won = true;
+        startedGame = true;
+        player.mowing = true;
+        player.transform.position = new Vector3(52.502f, 0.6631742f, -24.69f);
+
+        cinemachine.FollowOffset = new Vector3(0, 8, -6);
+
+        
+    }
+
+    public void EndGame()
+    {
+        startedGame = false;
+
+        for (int i = 0; i < 4; i++)
+        {
+            for (int j = 0; j < 4; j++)
+            {
+                if (grassObjects[i][j] != null)
+                {
+                    won = false;
+                }
+            }
+        }
+
+        if (won)
+        {
+            InventoryManager.Instance.flags.Add("grassCut");
+        }
+        else
+        {
+            InventoryManager.Instance.flags.Add("grassRuined");
+        }
+
+        player.transform.position = new Vector3(51.079f, 0.6631742f, -24.69f);
+        player.mowing = false;
+        cinemachine.FollowOffset = new Vector3(0, 5.5f, -11);
+        gartenGate.interactable = true;
+    }
+
+    int lastI;
+    int lastJ;
+    public bool won;
+
+    void Update()
+    {
+        if (!startedGame)
+            return;
+
+        Vector3 pos = player.transform.position;
+
+        int i = Mathf.RoundToInt(player.transform.position.x - transform.position.x);
+        int j = Mathf.RoundToInt(player.transform.position.z - transform.position.z);
+
+        Debug.Log("i: " + i);
+        Debug.Log("j: " + j);
+
+        if (i < 4 && i >= 0)
+        {
+            if (i != lastI || j != lastJ)
+            {
+                UpdateTile(i, j);
+            }
+
+            if (i == 3 && j == 0)
+            {
+                EndGame();
+            }
+        }
+        
+
+        lastI = i;
+        lastJ = j;
+    }
+
+    void UpdateTile(int i, int j)
+    {
+
+        if (grassObjects[i][j] != null)
+        {
+            Destroy(grassObjects[i][j]);
+        }
+        else
+        {
+            tilemap.SetTile(
+                new Vector3Int(Mathf.CeilToInt(positions[i][j].x) - 1, Mathf.CeilToInt(positions[i][j].z) - 1, 0),
+                dirt
+            );
+            won = false;
+        }
     }
 }

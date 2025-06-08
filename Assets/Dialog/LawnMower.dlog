@@ -49,8 +49,8 @@
             "DrawState": {
                 "Position": {
                     "serializedVersion": "2",
-                    "x": 1184.0,
-                    "y": 344.0,
+                    "x": 942.0,
+                    "y": 218.0,
                     "width": 394.0,
                     "height": 153.0
                 },
@@ -71,8 +71,8 @@
             "DrawState": {
                 "Position": {
                     "serializedVersion": "2",
-                    "x": 1036.0,
-                    "y": 294.0,
+                    "x": 794.0,
+                    "y": 168.0,
                     "width": 59.0,
                     "height": 42.0
                 },
@@ -89,8 +89,8 @@
             "DrawState": {
                 "Position": {
                     "serializedVersion": "2",
-                    "x": 1630.0,
-                    "y": 476.0,
+                    "x": 1361.0,
+                    "y": 345.0,
                     "width": 141.0,
                     "height": 42.0
                 },
@@ -107,8 +107,8 @@
             "DrawState": {
                 "Position": {
                     "serializedVersion": "2",
-                    "x": 459.0,
-                    "y": 251.0,
+                    "x": 475.0,
+                    "y": 323.0,
                     "width": 394.0,
                     "height": 246.0
                 },
@@ -137,10 +137,10 @@
             "DrawState": {
                 "Position": {
                     "serializedVersion": "2",
-                    "x": 932.0000610351563,
-                    "y": 357.0,
+                    "x": 948.0,
+                    "y": 429.0,
                     "width": 64.0,
-                    "height": 42.000030517578128
+                    "height": 42.0
                 },
                 "Expanded": true
             },
@@ -155,10 +155,10 @@
             "DrawState": {
                 "Position": {
                     "serializedVersion": "2",
-                    "x": 927.9999389648438,
-                    "y": 399.0000305175781,
-                    "width": 125.00018310546875,
-                    "height": 41.999969482421878
+                    "x": 944.0,
+                    "y": 471.0,
+                    "width": 125.0,
+                    "height": 42.0
                 },
                 "Expanded": true
             },
@@ -191,10 +191,10 @@
             "DrawState": {
                 "Position": {
                     "serializedVersion": "2",
-                    "x": 944.536376953125,
-                    "y": 446.539306640625,
-                    "width": 200.0,
-                    "height": 150.0
+                    "x": 961.0,
+                    "y": 519.0,
+                    "width": 77.0,
+                    "height": 42.0
                 },
                 "Expanded": true
             },
@@ -352,6 +352,24 @@
                 "a932e9db-5559-4a15-87f5-493d2c1e7b42",
                 "1719273b-b006-4c44-93e0-6c1ed00fedf7"
             ]
+        },
+        {
+            "GUID": "2abcba63-52d2-43e2-b637-c3af02a4d83c",
+            "Type": "DialogueGraph.PropertyNode",
+            "DrawState": {
+                "Position": {
+                    "serializedVersion": "2",
+                    "x": 942.0,
+                    "y": 387.0,
+                    "width": 141.0,
+                    "height": 42.0
+                },
+                "Expanded": true
+            },
+            "NodeData": "{\"propertyGuid\":\"cc4af9a1-e904-475f-9a45-92ad7049aab7\"}",
+            "PortData": [
+                "0fdb6452-ad9c-4ea7-a454-58012ea92358"
+            ]
         }
     ],
     "edges": [
@@ -498,6 +516,14 @@
             "OutputPort": "1719273b-b006-4c44-93e0-6c1ed00fedf7",
             "InputCapacity": 0,
             "OutputCapacity": 0
+        },
+        {
+            "Input": "2abcba63-52d2-43e2-b637-c3af02a4d83c",
+            "Output": "94b63567-79cf-452e-90dc-82bc3f670110",
+            "InputPort": "0fdb6452-ad9c-4ea7-a454-58012ea92358",
+            "OutputPort": "0a36f39b-c064-4b93-a085-1973d59a18c9",
+            "InputCapacity": 1,
+            "OutputCapacity": 1
         }
     ],
     "serializedProperties": [
