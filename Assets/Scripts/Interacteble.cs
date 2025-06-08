@@ -51,6 +51,17 @@ public abstract class Interacteble : MonoBehaviour
         }
 
         interactable = true;
+        isInConversation = false;
+    }
+
+    public bool CheckFlag(string id)
+    {
+        return InventoryManager.Instance.flags.Contains(id);
+    }
+
+    public void AddFlag(string id)
+    {
+        InventoryManager.Instance.flags.Add(id);
     }
 
     void Start()
@@ -135,7 +146,6 @@ public abstract class Interacteble : MonoBehaviour
 
     private void Update()
     {
-
         if (!isInConversation || isPlayerChoosing) return;
 
         if (shouldShowText)
@@ -166,6 +176,8 @@ public abstract class Interacteble : MonoBehaviour
 
         if (!showingText)
         {
+            Debug.Log(DialogueSystem);
+
             if (DialogueSystem.IsConversationDone())
             {
                 switch (showPlayer)
@@ -284,9 +296,18 @@ public abstract class Interacteble : MonoBehaviour
                 {
                     Click(lastIndex);
                 }
+                else if (count == 0)
+                {
+                    Debug.LogWarning("skip player dialogue");
+
+                    Click(0);
+                    Update();
+                    Continue();
+                    Update();
+                    Continue();
+                }
                 else
                 {
-
                     if (Gamepad.current != null && Gamepad.current.wasUpdatedThisFrame)
                     {
                         EventSystem.current.SetSelectedGameObject(ButtonParent.GetChild(0).gameObject);
@@ -359,6 +380,7 @@ public abstract class Interacteble : MonoBehaviour
         if (TextAnimator.animating && !skipPlayerText)
         {
             TextAnimator.animator.Finish();
+            
             Debug.Log("SkippedAnimation");
             return;
         }

@@ -1,6 +1,7 @@
 using System;
 using TMPro;
 using UnityEngine;
+using UnityEngine.Playables;
 using UnityEngine.Rendering.Universal;
 using UnityEngine.SceneManagement;
 
@@ -40,6 +41,7 @@ public class StoryCanvas : MonoBehaviour
     public void SkipIntro()
     {
         GetComponent<Animator>().enabled = false;
+        GetComponentInChildren<PlayableDirector>().time = 5;
     }
 
     public void Generosity(int counter)

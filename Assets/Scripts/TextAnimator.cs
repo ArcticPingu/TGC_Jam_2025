@@ -128,6 +128,7 @@ public class TextAnimator : MonoBehaviour
     {
         visibleCharacterCount = 9999;
         textMesh.maxVisibleCharacters = visibleCharacterCount;
+        animating = false;
     }
 
     void Update()

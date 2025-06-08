@@ -1,0 +1,99 @@
+{
+    "AssetGuid": "87ca3ca2267015f4d83e7ef601fb1091",
+    "IsBlackboardVisible": true,
+    "DialogueGraphVersion": "2.0.0",
+    "nodes": [
+        {
+            "GUID": "0631fa20-2f50-4405-840f-0016d8832511",
+            "Type": "DialogueGraph.SelfNode",
+            "DrawState": {
+                "Position": {
+                    "serializedVersion": "2",
+                    "x": 543.9999389648438,
+                    "y": 150.99998474121095,
+                    "width": 440.0,
+                    "height": 183.99998474121095
+                },
+                "Expanded": true
+            },
+            "NodeData": "{\"lines\":\"[{\\\"Line\\\":\\\"I should get the lawn <b>mower</b>.\\\",\\\"PortGuidA\\\":\\\"a5737550-d5f1-4482-825f-e85426d0ae97\\\",\\\"PortGuidB\\\":\\\"188299d7-dcba-4ffc-973a-7ee6d30785d4\\\",\\\"PortGuidC\\\":\\\"3c59eaf6-c975-4bf1-b971-cbfda268cd6b\\\"},{\\\"Line\\\":\\\"Mow the lawn.\\\",\\\"PortGuidA\\\":\\\"2d6cf0b3-f2fb-40b8-aa5c-b8b8f8dbf389\\\",\\\"PortGuidB\\\":\\\"9891e43e-5d81-4f93-8d47-b09428a151fe\\\",\\\"PortGuidC\\\":\\\"62c8e641-6d81-4352-8994-e3c91e564d14\\\"}]\"}",
+            "PortData": [
+                "953413e3-627d-46b3-a0ea-a88dcf7efaa1",
+                "a5737550-d5f1-4482-825f-e85426d0ae97",
+                "188299d7-dcba-4ffc-973a-7ee6d30785d4",
+                "3c59eaf6-c975-4bf1-b971-cbfda268cd6b",
+                "2d6cf0b3-f2fb-40b8-aa5c-b8b8f8dbf389",
+                "9891e43e-5d81-4f93-8d47-b09428a151fe",
+                "62c8e641-6d81-4352-8994-e3c91e564d14"
+            ]
+        },
+        {
+            "GUID": "1e4be288-2661-484a-87d0-3c17d7da2698",
+            "Type": "DialogueGraph.PropertyNode",
+            "DrawState": {
+                "Position": {
+                    "serializedVersion": "2",
+                    "x": 372.0,
+                    "y": 268.0,
+                    "width": 96.99996948242188,
+                    "height": 41.999969482421878
+                },
+                "Expanded": true
+            },
+            "NodeData": "{\"propertyGuid\":\"bfea0e62-6e54-4f54-8f4a-3be10b52dc12\"}",
+            "PortData": [
+                "10f08d0d-60e0-40b1-b050-b5891abbab5d"
+            ]
+        },
+        {
+            "GUID": "5d16be8b-6b21-4d9d-896b-58afd8afa10c",
+            "Type": "DialogueGraph.PropertyNode",
+            "DrawState": {
+                "Position": {
+                    "serializedVersion": "2",
+                    "x": 1029.086669921875,
+                    "y": 298.7882080078125,
+                    "width": 200.0,
+                    "height": 150.0
+                },
+                "Expanded": true
+            },
+            "NodeData": "{\"propertyGuid\":\"fb954c60-64b0-41d0-b2ac-ee977ec53600\"}",
+            "PortData": [
+                "e986c9aa-60fd-4e2b-b2a3-51c876211ddc"
+            ]
+        }
+    ],
+    "edges": [
+        {
+            "Input": "0631fa20-2f50-4405-840f-0016d8832511",
+            "Output": "1e4be288-2661-484a-87d0-3c17d7da2698",
+            "InputPort": "62c8e641-6d81-4352-8994-e3c91e564d14",
+            "OutputPort": "10f08d0d-60e0-40b1-b050-b5891abbab5d",
+            "InputCapacity": 1,
+            "OutputCapacity": 1
+        },
+        {
+            "Input": "5d16be8b-6b21-4d9d-896b-58afd8afa10c",
+            "Output": "0631fa20-2f50-4405-840f-0016d8832511",
+            "InputPort": "e986c9aa-60fd-4e2b-b2a3-51c876211ddc",
+            "OutputPort": "9891e43e-5d81-4f93-8d47-b09428a151fe",
+            "InputCapacity": 1,
+            "OutputCapacity": 1
+        }
+    ],
+    "serializedProperties": [
+        {
+            "Type": "DialogueGraph.ActorProperty",
+            "Data": "{\"$type\":\"DialogueGraph.ActorProperty, DialogueGraph.Editor\",\"GUID\":\"883552ca-e295-4257-a5d4-30aefd42f7e5\",\"Type\":2,\"DisplayName\":\"Info\",\"ReferenceName\":\"Actor_4DCB396C\",\"OverrideReferenceName\":null,\"Hidden\":false,\"ShortGuid\":\"4DCB396C\"}"
+        },
+        {
+            "Type": "DialogueGraph.CheckProperty",
+            "Data": "{\"$type\":\"DialogueGraph.CheckProperty, DialogueGraph.Editor\",\"GUID\":\"bfea0e62-6e54-4f54-8f4a-3be10b52dc12\",\"Type\":1,\"DisplayName\":\"hasMower\",\"ReferenceName\":\"Check_B593AA8\",\"OverrideReferenceName\":null,\"Hidden\":false,\"ShortGuid\":\"B593AA8\"}"
+        },
+        {
+            "Type": "DialogueGraph.TriggerProperty",
+            "Data": "{\"$type\":\"DialogueGraph.TriggerProperty, DialogueGraph.Editor\",\"GUID\":\"fb954c60-64b0-41d0-b2ac-ee977ec53600\",\"Type\":0,\"DisplayName\":\"StartPuzle\",\"ReferenceName\":\"Trigger_DAE3761C\",\"OverrideReferenceName\":null,\"Hidden\":false,\"ShortGuid\":\"DAE3761C\"}"
+        }
+    ]
+}
