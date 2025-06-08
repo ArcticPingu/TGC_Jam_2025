@@ -56,8 +56,17 @@ public class InventoryManager : MonoBehaviour
         InventoryManager.Instance.flags.Add("bush1");
     }
 
-    public void AddItem(InventoryItem item)
+    public bool AddItem(InventoryItem item)
     {
-        inventory[n++] = item;
+        for (int i = 0; i < inventory.Length; i++)
+        {
+            if (inventory[i] == null)
+            {
+                inventory[i] = item;
+                return true;
+            }
+        }
+
+        return false;
     }
 }

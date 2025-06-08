@@ -1,0 +1,65 @@
+{
+    "AssetGuid": "64ebacf3ff8146946a08053cf0c6d973",
+    "IsBlackboardVisible": true,
+    "DialogueGraphVersion": "2.0.0",
+    "nodes": [
+        {
+            "GUID": "41ce15d4-f4b2-43ca-ad26-18a20cd200af",
+            "Type": "DialogueGraph.SelfNode",
+            "DrawState": {
+                "Position": {
+                    "serializedVersion": "2",
+                    "x": 446.9999694824219,
+                    "y": 178.0,
+                    "width": 393.9999694824219,
+                    "height": 175.99996948242188
+                },
+                "Expanded": true
+            },
+            "NodeData": "{\"lines\":\"[{\\\"Line\\\":\\\"Take Card\\\",\\\"PortGuidA\\\":\\\"cb5f6413-bb6e-4b84-a71a-31e32d14ba9e\\\",\\\"PortGuidB\\\":\\\"9d3e3885-b5f7-4f0d-b7a6-562a52531ba2\\\",\\\"PortGuidC\\\":\\\"365a19b8-f228-4103-9d6c-c901bdbf3861\\\"},{\\\"Line\\\":\\\"...\\\",\\\"PortGuidA\\\":\\\"f7d85e31-8a35-424e-91d8-769b973c490d\\\",\\\"PortGuidB\\\":\\\"4bea5e0e-81a8-4d06-ba8e-f739d61baa30\\\",\\\"PortGuidC\\\":\\\"29760222-c38d-4d31-96f4-27eedb0ebeed\\\"}]\"}",
+            "PortData": [
+                "139ba8ff-f25f-40f5-b94d-9abe66ff35b7",
+                "cb5f6413-bb6e-4b84-a71a-31e32d14ba9e",
+                "9d3e3885-b5f7-4f0d-b7a6-562a52531ba2",
+                "365a19b8-f228-4103-9d6c-c901bdbf3861",
+                "f7d85e31-8a35-424e-91d8-769b973c490d",
+                "4bea5e0e-81a8-4d06-ba8e-f739d61baa30",
+                "29760222-c38d-4d31-96f4-27eedb0ebeed"
+            ]
+        },
+        {
+            "GUID": "cd0a8261-2274-4e27-b280-b4b783a721b6",
+            "Type": "DialogueGraph.PropertyNode",
+            "DrawState": {
+                "Position": {
+                    "serializedVersion": "2",
+                    "x": 881.0000610351563,
+                    "y": 301.0,
+                    "width": 91.99993896484375,
+                    "height": 42.0
+                },
+                "Expanded": true
+            },
+            "NodeData": "{\"propertyGuid\":\"25ab3e41-8502-4ba4-b9d0-456fab4a6f50\"}",
+            "PortData": [
+                "b74490a6-8e93-4eec-8645-ce91cabd5338"
+            ]
+        }
+    ],
+    "edges": [
+        {
+            "Input": "cd0a8261-2274-4e27-b280-b4b783a721b6",
+            "Output": "41ce15d4-f4b2-43ca-ad26-18a20cd200af",
+            "InputPort": "b74490a6-8e93-4eec-8645-ce91cabd5338",
+            "OutputPort": "9d3e3885-b5f7-4f0d-b7a6-562a52531ba2",
+            "InputCapacity": 1,
+            "OutputCapacity": 1
+        }
+    ],
+    "serializedProperties": [
+        {
+            "Type": "DialogueGraph.TriggerProperty",
+            "Data": "{\"$type\":\"DialogueGraph.TriggerProperty, DialogueGraph.Editor\",\"GUID\":\"25ab3e41-8502-4ba4-b9d0-456fab4a6f50\",\"Type\":0,\"DisplayName\":\"TakeCard\",\"ReferenceName\":\"Trigger_DC2FEFEA\",\"OverrideReferenceName\":null,\"Hidden\":false,\"ShortGuid\":\"DC2FEFEA\"}"
+        }
+    ]
+}
