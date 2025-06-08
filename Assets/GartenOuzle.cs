@@ -32,7 +32,9 @@ public class GartenOuzle : MonoBehaviour
             for (int j = 0; j < 4; j++)
             {
                 positions[i][j] = transform.position + new Vector3(i, 0, j - 0.25f);
-                grassObjects[i][j] = Instantiate(grassObject, new Vector3(positions[i][j].x, 0.2f, positions[i][j].z), Quaternion.identity);
+                
+                if ((i != 0 || j != 0) && !(i == 0 && j == 3) && !(i == 2 && j == 0))
+                    grassObjects[i][j] = Instantiate(grassObject, new Vector3(positions[i][j].x, 0.2f, positions[i][j].z), Quaternion.identity);
             }
         }
     }
@@ -43,11 +45,9 @@ public class GartenOuzle : MonoBehaviour
         won = true;
         startedGame = true;
         player.mowing = true;
-        player.transform.position = new Vector3(52.502f, 0.6631742f, -24.69f);
+        player.GetComponent<Rigidbody>().position = new Vector3(52.602f, 0.6631742f, -24.69f);
 
         cinemachine.FollowOffset = new Vector3(0, 8, -6);
-
-        
     }
 
     public void EndGame()
@@ -60,7 +60,12 @@ public class GartenOuzle : MonoBehaviour
             {
                 if (grassObjects[i][j] != null)
                 {
-                    won = false;
+                    if (!(i == 3 && j == 0))
+                    {
+                        won = false;
+                        Debug.Log("MISSIED GRASS: " + i + " " + j);
+                    }
+
                 }
             }
         }
@@ -74,10 +79,10 @@ public class GartenOuzle : MonoBehaviour
             InventoryManager.Instance.flags.Add("grassRuined");
         }
 
-        player.transform.position = new Vector3(51.079f, 0.6631742f, -24.69f);
+        player.GetComponent<Rigidbody>().position = new Vector3(51.079f, 0.6631742f, -24.69f);
         player.mowing = false;
         cinemachine.FollowOffset = new Vector3(0, 5.5f, -11);
-        gartenGate.interactable = true;
+        gartenGate.interactebleCollsion = true;
     }
 
     public void Clean()
@@ -111,19 +116,21 @@ public class GartenOuzle : MonoBehaviour
         Debug.Log("i: " + i);
         Debug.Log("j: " + j);
 
-        if (i < 4 && i >= 0)
+        if (i != 0 || j != 0)
         {
-            if (i != lastI || j != lastJ)
+            if (i < 4 && i >= 0)
             {
-                UpdateTile(i, j);
-            }
+                if (i != lastI || j != lastJ)
+                {
+                    UpdateTile(i, j);
+                }
 
-            if (i == 3 && j == 0)
-            {
-                EndGame();
+                if (i == 3 && j == 0)
+                {
+                    EndGame();
+                }
             }
         }
-        
 
         lastI = i;
         lastJ = j;
@@ -142,6 +149,8 @@ public class GartenOuzle : MonoBehaviour
                 new Vector3Int(Mathf.CeilToInt(positions[i][j].x) - 1, Mathf.CeilToInt(positions[i][j].z) - 1, 0),
                 dirt
             );
+
+            Debug.Log("DOUBLED GRASS");
             won = false;
         }
     }

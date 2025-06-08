@@ -1,0 +1,19 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9acf3c4a65868894389b44439c6b1be8, type: 3}
+  m_Name: Agatha
+  m_EditorClassIdentifier: 
+  sprites:
+  - {fileID: 21300000, guid: a83ccab1582f17540ae12e300bf2cc3c, type: 3}
+  - {fileID: 21300000, guid: 5ed77daa4e2e3734faee765527c4ad38, type: 3}
+  - {fileID: 21300000, guid: ef662122d0620054398b34c7ff55b327, type: 3}
+  font: {fileID: 11400000, guid: bb62b1c77826d1d42878a05897110a56, type: 2}

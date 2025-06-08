@@ -26,7 +26,7 @@ public abstract class Interacteble : MonoBehaviour
     public PlayerController talker;
 
     protected bool isInConversation = false;
-    public  ShowField showPlayer;
+    public ShowField showPlayer;
     protected bool isPlayerChoosing;
     protected bool shouldShowText;
     protected bool showingText;
@@ -35,6 +35,12 @@ public abstract class Interacteble : MonoBehaviour
 
     public string CostId;
     public bool interactable;
+    public int emotionIndex = 0;
+
+    public void SetEmotionIndex(int index)
+    {
+        emotionIndex = index;
+    }
 
     [Serializable]
     public enum ShowField
@@ -222,7 +228,7 @@ public abstract class Interacteble : MonoBehaviour
                 
                 var currentActor = DialogueSystem.GetCurrentActor();
                 Actor container = (Actor)currentActor.CustomData;
-                npcImage.sprite = container.sprite;
+                npcImage.sprite = container.sprites[emotionIndex];
                 NpcText.font = container.font;
                 shouldShowText = true;
                 Debug.Log(currentActor);

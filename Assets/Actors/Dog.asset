@@ -12,5 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9acf3c4a65868894389b44439c6b1be8, type: 3}
   m_Name: Dog
   m_EditorClassIdentifier: 
-  sprite: {fileID: 21300000, guid: 0a34da6f53dddcf47a734a2fd2cc622a, type: 3}
+  sprites:
+  - {fileID: 2036155322, guid: df98703f0f8589942afa0c4908f068c0, type: 3}
   font: {fileID: 11400000, guid: 7b66537415da67d43b45bfe5723e5806, type: 2}

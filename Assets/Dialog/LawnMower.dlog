@@ -524,6 +524,14 @@
             "OutputPort": "0a36f39b-c064-4b93-a085-1973d59a18c9",
             "InputCapacity": 1,
             "OutputCapacity": 1
+        },
+        {
+            "Input": "40939e7e-8235-4aff-9ada-8094086b1eb4",
+            "Output": "94b63567-79cf-452e-90dc-82bc3f670110",
+            "InputPort": "eb1fe174-e20d-4245-bada-d870aa04a087",
+            "OutputPort": "a156ac5b-fa14-4f3e-8637-bd8d41486eee",
+            "InputCapacity": 1,
+            "OutputCapacity": 1
         }
     ],
     "serializedProperties": [

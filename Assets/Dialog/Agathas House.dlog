@@ -936,7 +936,7 @@
                 },
                 "Expanded": true
             },
-            "NodeData": "{\"lines\":\"[{\\\"Line\\\":\\\"Is it because you lost your cards?\\\",\\\"PortGuidA\\\":\\\"b883fc4a-19b0-4d23-b6b3-82f759ca4113\\\",\\\"PortGuidB\\\":\\\"2ccef483-4781-424c-b929-4b9914f22b16\\\",\\\"PortGuidC\\\":\\\"ee71fd60-4f1e-4119-a88b-28295ac7828f\\\"},{\\\"Line\\\":\\\"What did you have for lunch?\\\",\\\"PortGuidA\\\":\\\"e21bf384-b42e-477c-a893-06e6478ffd47\\\",\\\"PortGuidB\\\":\\\"a3913645-3709-4af2-a067-07327edc10a7\\\",\\\"PortGuidC\\\":\\\"eb2606a0-5fb7-4dcd-ae82-306717fbf692\\\"},{\\\"Line\\\":\\\"Is it because you lost your job?\\\",\\\"PortGuidA\\\":\\\"78fb3a15-9977-46b7-be87-35ed83303607\\\",\\\"PortGuidB\\\":\\\"07c0a4be-c864-4fd2-a098-6bd7fa993c52\\\",\\\"PortGuidC\\\":\\\"bfae4a58-4f7d-43a9-935d-177d32014b0f\\\"},{\\\"Line\\\":\\\"How about we play some cards?\\\",\\\"PortGuidA\\\":\\\"15bed4c6-894b-4b46-8910-07242cbd97c6\\\",\\\"PortGuidB\\\":\\\"39c984d6-e138-4be0-baaa-a641377cb45e\\\",\\\"PortGuidC\\\":\\\"a84e86fb-0b40-4f73-b124-4551c293e4eb\\\"}]\"}",
+            "NodeData": "{\"lines\":\"[{\\\"Line\\\":\\\"Is it because you lost your cards?\\\",\\\"PortGuidA\\\":\\\"b883fc4a-19b0-4d23-b6b3-82f759ca4113\\\",\\\"PortGuidB\\\":\\\"2ccef483-4781-424c-b929-4b9914f22b16\\\",\\\"PortGuidC\\\":\\\"ee71fd60-4f1e-4119-a88b-28295ac7828f\\\"},{\\\"Line\\\":\\\"What did you have for lunch?\\\",\\\"PortGuidA\\\":\\\"e21bf384-b42e-477c-a893-06e6478ffd47\\\",\\\"PortGuidB\\\":\\\"a3913645-3709-4af2-a067-07327edc10a7\\\",\\\"PortGuidC\\\":\\\"eb2606a0-5fb7-4dcd-ae82-306717fbf692\\\"},{\\\"Line\\\":\\\"Is it because you lost your job?\\\",\\\"PortGuidA\\\":\\\"78fb3a15-9977-46b7-be87-35ed83303607\\\",\\\"PortGuidB\\\":\\\"07c0a4be-c864-4fd2-a098-6bd7fa993c52\\\",\\\"PortGuidC\\\":\\\"bfae4a58-4f7d-43a9-935d-177d32014b0f\\\"},{\\\"Line\\\":\\\"How about we play some cards?\\\",\\\"PortGuidA\\\":\\\"15bed4c6-894b-4b46-8910-07242cbd97c6\\\",\\\"PortGuidB\\\":\\\"39c984d6-e138-4be0-baaa-a641377cb45e\\\",\\\"PortGuidC\\\":\\\"a84e86fb-0b40-4f73-b124-4551c293e4eb\\\"},{\\\"Line\\\":\\\"...\\\",\\\"PortGuidA\\\":\\\"e64117c4-8a67-469e-a93e-84c4d4a7e7eb\\\",\\\"PortGuidB\\\":\\\"9fb49cfa-02f1-4631-b4a7-da2b61f9e453\\\",\\\"PortGuidC\\\":\\\"ddd038ee-e8d5-4968-b1f6-9315a339c739\\\"}]\"}",
             "PortData": [
                 "7bf5ab84-8881-4536-abd9-5c7cb842611e",
                 "b883fc4a-19b0-4d23-b6b3-82f759ca4113",
@@ -950,7 +950,10 @@
                 "bfae4a58-4f7d-43a9-935d-177d32014b0f",
                 "15bed4c6-894b-4b46-8910-07242cbd97c6",
                 "39c984d6-e138-4be0-baaa-a641377cb45e",
-                "a84e86fb-0b40-4f73-b124-4551c293e4eb"
+                "a84e86fb-0b40-4f73-b124-4551c293e4eb",
+                "e64117c4-8a67-469e-a93e-84c4d4a7e7eb",
+                "9fb49cfa-02f1-4631-b4a7-da2b61f9e453",
+                "ddd038ee-e8d5-4968-b1f6-9315a339c739"
             ]
         },
         {
@@ -1754,6 +1757,24 @@
             "PortData": [
                 "817a3f68-75bf-494d-a63e-874d6cc1ced2"
             ]
+        },
+        {
+            "GUID": "0a9dc66a-4fc8-4e04-97ce-f295d45b0993",
+            "Type": "DialogueGraph.PropertyNode",
+            "DrawState": {
+                "Position": {
+                    "serializedVersion": "2",
+                    "x": 6301.6357421875,
+                    "y": 1084.9017333984375,
+                    "width": 200.0,
+                    "height": 150.0
+                },
+                "Expanded": true
+            },
+            "NodeData": "{\"propertyGuid\":\"01940676-8c83-4f7e-a8b5-f939eb60d5e2\"}",
+            "PortData": [
+                "2fe980dd-c96e-4491-8466-5bb7f4b4afcc"
+            ]
         }
     ],
     "edges": [
@@ -2484,6 +2505,30 @@
             "OutputPort": "0c949283-184f-4d74-af9b-03c700e2afc1",
             "InputCapacity": 1,
             "OutputCapacity": 0
+        },
+        {
+            "Input": "0a9dc66a-4fc8-4e04-97ce-f295d45b0993",
+            "Output": "1e127ff3-3b72-4237-9279-eeb900e09303",
+            "InputPort": "2fe980dd-c96e-4491-8466-5bb7f4b4afcc",
+            "OutputPort": "2ccef483-4781-424c-b929-4b9914f22b16",
+            "InputCapacity": 1,
+            "OutputCapacity": 1
+        },
+        {
+            "Input": "0a9dc66a-4fc8-4e04-97ce-f295d45b0993",
+            "Output": "1e127ff3-3b72-4237-9279-eeb900e09303",
+            "InputPort": "2fe980dd-c96e-4491-8466-5bb7f4b4afcc",
+            "OutputPort": "a3913645-3709-4af2-a067-07327edc10a7",
+            "InputCapacity": 1,
+            "OutputCapacity": 1
+        },
+        {
+            "Input": "0a9dc66a-4fc8-4e04-97ce-f295d45b0993",
+            "Output": "1e127ff3-3b72-4237-9279-eeb900e09303",
+            "InputPort": "2fe980dd-c96e-4491-8466-5bb7f4b4afcc",
+            "OutputPort": "07c0a4be-c864-4fd2-a098-6bd7fa993c52",
+            "InputCapacity": 1,
+            "OutputCapacity": 1
         }
     ],
     "serializedProperties": [
