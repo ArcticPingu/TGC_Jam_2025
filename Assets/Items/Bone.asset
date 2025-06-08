@@ -13,4 +13,4 @@ MonoBehaviour:
   m_Name: Bone
   m_EditorClassIdentifier: 
   id: bone
-  sprite: {fileID: 21300000, guid: 5fbeb41bb13a98846afb1f62a4d012b7, type: 3}
+  sprite: {fileID: 21300000, guid: f8c6df7a97422e243b3e785331df5b21, type: 3}

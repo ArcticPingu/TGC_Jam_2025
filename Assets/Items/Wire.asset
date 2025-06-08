@@ -13,4 +13,4 @@ MonoBehaviour:
   m_Name: Wire
   m_EditorClassIdentifier: 
   id: wire
-  sprite: {fileID: 21300000, guid: 0731eda9282807241b9910aaa002c8f5, type: 3}
+  sprite: {fileID: 21300000, guid: 546bc8951fe438b4094739cc112e4e1d, type: 3}

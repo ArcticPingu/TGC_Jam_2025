@@ -13,4 +13,4 @@ MonoBehaviour:
   m_Name: Berry
   m_EditorClassIdentifier: 
   id: berry
-  sprite: {fileID: -459668627, guid: 7a92c1d93ec7f314fa4f8a77da9b680d, type: 3}
+  sprite: {fileID: 21300000, guid: 9376805d47117c544a5e2c3df1ee4161, type: 3}
