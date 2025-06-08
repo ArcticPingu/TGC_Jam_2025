@@ -16,7 +16,7 @@
                 },
                 "Expanded": true
             },
-            "NodeData": "{\"lines\":\"[{\\\"Line\\\":\\\"The door is repaired for for the day.\\\",\\\"PortGuidA\\\":\\\"39faa447-d777-4c7e-a1bc-20837c775b4c\\\",\\\"PortGuidB\\\":\\\"44e94e7e-d4fb-456e-b52b-79c9de56af61\\\",\\\"PortGuidC\\\":\\\"a6db1eb3-d2cb-41a8-b00d-312c738de92b\\\"},{\\\"Line\\\":\\\"The door is repaired for for the day.\\\",\\\"PortGuidA\\\":\\\"ab1feb47-1531-4709-8ab6-eecf6f07bc24\\\",\\\"PortGuidB\\\":\\\"bd65284c-cb0c-4171-9484-3f697b09ee1d\\\",\\\"PortGuidC\\\":\\\"862b3552-abb2-4843-9e1e-355c09d4bda0\\\"},{\\\"Line\\\":\\\"Do you want to repair the door for the day?\\\",\\\"PortGuidA\\\":\\\"ad8ebebb-d681-4fa8-b004-27813e6b05f0\\\",\\\"PortGuidB\\\":\\\"5217ef49-aae4-409c-8336-1e934c01540e\\\",\\\"PortGuidC\\\":\\\"ec3821a8-8a95-4beb-acd2-210951794cca\\\"},{\\\"Line\\\":\\\"A broken Door.\\\",\\\"PortGuidA\\\":\\\"7a9beddc-a962-4f0c-b243-fcf5a712fa8c\\\",\\\"PortGuidB\\\":\\\"290b30de-55f9-4fd0-ae81-ffe90f6f563d\\\",\\\"PortGuidC\\\":\\\"f91e9639-6155-49c8-9a06-c4f2e247c217\\\"}]\"}",
+            "NodeData": "{\"lines\":\"[{\\\"Line\\\":\\\"The gate is repaired for for the day.\\\",\\\"PortGuidA\\\":\\\"39faa447-d777-4c7e-a1bc-20837c775b4c\\\",\\\"PortGuidB\\\":\\\"44e94e7e-d4fb-456e-b52b-79c9de56af61\\\",\\\"PortGuidC\\\":\\\"a6db1eb3-d2cb-41a8-b00d-312c738de92b\\\"},{\\\"Line\\\":\\\"The gate is repaired for for the day.\\\",\\\"PortGuidA\\\":\\\"ab1feb47-1531-4709-8ab6-eecf6f07bc24\\\",\\\"PortGuidB\\\":\\\"bd65284c-cb0c-4171-9484-3f697b09ee1d\\\",\\\"PortGuidC\\\":\\\"862b3552-abb2-4843-9e1e-355c09d4bda0\\\"},{\\\"Line\\\":\\\"Do you want to repair the gate for the day?\\\",\\\"PortGuidA\\\":\\\"ad8ebebb-d681-4fa8-b004-27813e6b05f0\\\",\\\"PortGuidB\\\":\\\"5217ef49-aae4-409c-8336-1e934c01540e\\\",\\\"PortGuidC\\\":\\\"ec3821a8-8a95-4beb-acd2-210951794cca\\\"},{\\\"Line\\\":\\\"A broken Gate.\\\",\\\"PortGuidA\\\":\\\"7a9beddc-a962-4f0c-b243-fcf5a712fa8c\\\",\\\"PortGuidB\\\":\\\"290b30de-55f9-4fd0-ae81-ffe90f6f563d\\\",\\\"PortGuidC\\\":\\\"f91e9639-6155-49c8-9a06-c4f2e247c217\\\"}]\"}",
             "PortData": [
                 "501d4a5b-ca4c-4c86-8c02-0b14e76383ad",
                 "e235b6bf-c4ec-416d-b8e0-68be73cbfb28",
@@ -424,7 +424,7 @@
     "serializedProperties": [
         {
             "Type": "DialogueGraph.ActorProperty",
-            "Data": "{\"$type\":\"DialogueGraph.ActorProperty, DialogueGraph.Editor\",\"GUID\":\"30e36b19-6e88-4c67-8c7d-3e1b6c497594\",\"Type\":2,\"DisplayName\":\"Narator\",\"ReferenceName\":\"Actor_9FCF2D02\",\"OverrideReferenceName\":null,\"Hidden\":false,\"ShortGuid\":\"9FCF2D02\"}"
+            "Data": "{\"$type\":\"DialogueGraph.ActorProperty, DialogueGraph.Editor\",\"GUID\":\"30e36b19-6e88-4c67-8c7d-3e1b6c497594\",\"Type\":2,\"DisplayName\":\"info\",\"ReferenceName\":\"Actor_9FCF2D02\",\"OverrideReferenceName\":null,\"Hidden\":false,\"ShortGuid\":\"9FCF2D02\"}"
         },
         {
             "Type": "DialogueGraph.CheckProperty",

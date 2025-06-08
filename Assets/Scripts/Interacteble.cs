@@ -225,14 +225,31 @@ public abstract class Interacteble : MonoBehaviour
             bool isNpc = DialogueSystem.IsCurrentNpc();
             if (isNpc)
             {
-                
+
                 var currentActor = DialogueSystem.GetCurrentActor();
                 Actor container = (Actor)currentActor.CustomData;
-                npcImage.sprite = container.sprites[emotionIndex];
-                NpcText.font = container.font;
-                shouldShowText = true;
-                Debug.Log(currentActor);
-                NpcName.text = currentActor.Name;
+
+                if (currentActor.Name == "info")
+                {
+                    npcImage.sprite = null;
+                    NpcText.font = container.font;
+                    shouldShowText = true;
+                    NpcName.text = "";
+
+                    npcImage.transform.parent.gameObject.SetActive(false);
+                    NpcContainer.transform.GetChild(1).GetComponent<Image>().sprite = DialogRefHolder.Instance.info;
+                }
+                else
+                {
+                    npcImage.transform.parent.gameObject.SetActive(true);
+                    NpcContainer.transform.GetChild(1).GetComponent<Image>().sprite = DialogRefHolder.Instance.npc;
+
+                    npcImage.sprite = container.sprites[emotionIndex];
+                    NpcText.font = container.font;
+                    shouldShowText = true;
+                    NpcName.text = currentActor.Name;
+                }
+
                 textToShow = DialogueSystem.ProgressNpc();
             }
             else
@@ -251,7 +268,7 @@ public abstract class Interacteble : MonoBehaviour
                     PlayerContainer.SetActive(true);
                     ButtonParent = PlayerButtonParent;
                 }
-                
+
 
                 List<ConversationLine> lines = DialogueSystem.GetCurrentLines();
 
@@ -352,12 +369,12 @@ public abstract class Interacteble : MonoBehaviour
             {
                 DialogueSystem.ProgressSelf(index);
             }
-            
+
             Continue();
         }
         else
         {
-            
+
             textToShow = DialogueSystem.ProgressSelf(index);
         }
     }
@@ -386,7 +403,7 @@ public abstract class Interacteble : MonoBehaviour
         if (TextAnimator.animating && !skipPlayerText)
         {
             TextAnimator.animator.Finish();
-            
+
             Debug.Log("SkippedAnimation");
             return;
         }
@@ -453,5 +470,9 @@ public abstract class Interacteble : MonoBehaviour
         CodeText.text = "";
     }
 
+    public void SetCodeBack(bool on)
+    {
+        CodeText.transform.GetChild(0).gameObject.SetActive(on);
+    }
 
 }

@@ -20,6 +20,10 @@ public class DialogRefHolder : MonoBehaviour
     public Transform CodeButtonParent;
     public Transform PlayerButtonParent;
 
+    public Sprite info;
+    public Sprite npc;
+
+
     void Awake()
     {
         if (Instance != null)
