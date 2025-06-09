@@ -709,10 +709,10 @@
             "DrawState": {
                 "Position": {
                     "serializedVersion": "2",
-                    "x": -1789.015869140625,
-                    "y": 921.666259765625,
-                    "width": 200.0,
-                    "height": 150.0
+                    "x": -1710.0,
+                    "y": 935.0,
+                    "width": 60.0,
+                    "height": 42.0
                 },
                 "Expanded": true
             },
@@ -1189,6 +1189,24 @@
             "PortData": [
                 "80649806-05cb-43de-98c9-97bd56598164"
             ]
+        },
+        {
+            "GUID": "da352c10-78ba-489b-94f0-0099f70a4abc",
+            "Type": "DialogueGraph.PropertyNode",
+            "DrawState": {
+                "Position": {
+                    "serializedVersion": "2",
+                    "x": -1766.0,
+                    "y": 977.0,
+                    "width": 113.0,
+                    "height": 42.0
+                },
+                "Expanded": true
+            },
+            "NodeData": "{\"propertyGuid\":\"ccf3cd11-4e61-463b-99d9-bf6f2d8ee6bc\"}",
+            "PortData": [
+                "5acbd686-128e-42ba-9076-124959d3efa3"
+            ]
         }
     ],
     "edges": [
@@ -1569,14 +1587,6 @@
             "OutputCapacity": 0
         },
         {
-            "Input": "2cbf7586-2a84-4c79-8d08-3fb7fc48a373",
-            "Output": "a9708bb4-12a4-4967-a686-1d7719826fbe",
-            "InputPort": "1db2aed8-c160-4a8c-8edd-6a50cab32edf",
-            "OutputPort": "bfcfd80a-73e8-4f1e-b5e3-a6dec9942b22",
-            "InputCapacity": 1,
-            "OutputCapacity": 0
-        },
-        {
             "Input": "a9708bb4-12a4-4967-a686-1d7719826fbe",
             "Output": "4c6729c7-5fa5-4232-89ea-e11161899e23",
             "InputPort": "d649d08f-68f6-4e5f-9006-e77e036bb29b",
@@ -1679,6 +1689,22 @@
             "OutputPort": "146f3b3b-add5-4aa2-aff6-6d5af1133e76",
             "InputCapacity": 1,
             "OutputCapacity": 0
+        },
+        {
+            "Input": "2cbf7586-2a84-4c79-8d08-3fb7fc48a373",
+            "Output": "a9708bb4-12a4-4967-a686-1d7719826fbe",
+            "InputPort": "37993aa5-ee1b-4264-a121-5228f4b17e13",
+            "OutputPort": "bfcfd80a-73e8-4f1e-b5e3-a6dec9942b22",
+            "InputCapacity": 1,
+            "OutputCapacity": 0
+        },
+        {
+            "Input": "da352c10-78ba-489b-94f0-0099f70a4abc",
+            "Output": "363745eb-d3cb-4910-992c-f8ede04e4045",
+            "InputPort": "5acbd686-128e-42ba-9076-124959d3efa3",
+            "OutputPort": "aa7f1e36-24f2-49c3-9d05-47001b7af54d",
+            "InputCapacity": 1,
+            "OutputCapacity": 1
         }
     ],
     "serializedProperties": [
@@ -1713,6 +1739,10 @@
         {
             "Type": "DialogueGraph.TriggerProperty",
             "Data": "{\"$type\":\"DialogueGraph.TriggerProperty, DialogueGraph.Editor\",\"GUID\":\"7e2523f2-7e29-412e-b5d4-4a822f59cdc7\",\"Type\":0,\"DisplayName\":\"AcceptedRiddle\",\"ReferenceName\":\"Trigger_905E2DED\",\"OverrideReferenceName\":null,\"Hidden\":false,\"ShortGuid\":\"905E2DED\"}"
+        },
+        {
+            "Type": "DialogueGraph.TriggerProperty",
+            "Data": "{\"$type\":\"DialogueGraph.TriggerProperty, DialogueGraph.Editor\",\"GUID\":\"ccf3cd11-4e61-463b-99d9-bf6f2d8ee6bc\",\"Type\":0,\"DisplayName\":\"RemoveBone\",\"ReferenceName\":\"Trigger_66623D84\",\"OverrideReferenceName\":null,\"Hidden\":false,\"ShortGuid\":\"66623D84\"}"
         }
     ]
 }

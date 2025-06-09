@@ -97,6 +97,14 @@ public class StoryCanvas : MonoBehaviour
 
     private void LoadNewScene()
     {
-        SceneManager.LoadScene("MainMap");
+        if (GameManager.Instance.generosityCounter == 3)
+        {   
+            SceneManager.LoadScene("End");
+        }
+        else
+        {
+            SceneManager.LoadScene("MainMap");
+        }
+        
     }
 }

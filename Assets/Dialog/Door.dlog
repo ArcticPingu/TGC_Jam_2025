@@ -305,6 +305,24 @@
             "PortData": [
                 "69e539ef-4a88-4c06-a8a1-f90937a71ecd"
             ]
+        },
+        {
+            "GUID": "99384ed1-6563-4d0c-ac7e-6cec03c390ab",
+            "Type": "DialogueGraph.PropertyNode",
+            "DrawState": {
+                "Position": {
+                    "serializedVersion": "2",
+                    "x": 1298.0,
+                    "y": 186.0,
+                    "width": 109.0,
+                    "height": 42.0
+                },
+                "Expanded": true
+            },
+            "NodeData": "{\"propertyGuid\":\"c7ac5b39-dde9-44d4-83a8-bd4409521054\"}",
+            "PortData": [
+                "d1a840d4-6a7b-4a9f-ba6e-224a7c8300e6"
+            ]
         }
     ],
     "edges": [
@@ -419,6 +437,14 @@
             "OutputPort": "42b3e6b8-7039-4878-a5db-a04d74a61e9f",
             "InputCapacity": 1,
             "OutputCapacity": 1
+        },
+        {
+            "Input": "99384ed1-6563-4d0c-ac7e-6cec03c390ab",
+            "Output": "0e554f56-c981-4f0d-8752-d6a162b442ef",
+            "InputPort": "d1a840d4-6a7b-4a9f-ba6e-224a7c8300e6",
+            "OutputPort": "42b3e6b8-7039-4878-a5db-a04d74a61e9f",
+            "InputCapacity": 1,
+            "OutputCapacity": 1
         }
     ],
     "serializedProperties": [
@@ -449,6 +475,10 @@
         {
             "Type": "DialogueGraph.TriggerProperty",
             "Data": "{\"$type\":\"DialogueGraph.TriggerProperty, DialogueGraph.Editor\",\"GUID\":\"ae4944af-1237-4ce9-8dfa-67e275f581e4\",\"Type\":0,\"DisplayName\":\"Cost\",\"ReferenceName\":\"Trigger_CE025D12\",\"OverrideReferenceName\":null,\"Hidden\":false,\"ShortGuid\":\"CE025D12\"}"
+        },
+        {
+            "Type": "DialogueGraph.TriggerProperty",
+            "Data": "{\"$type\":\"DialogueGraph.TriggerProperty, DialogueGraph.Editor\",\"GUID\":\"c7ac5b39-dde9-44d4-83a8-bd4409521054\",\"Type\":0,\"DisplayName\":\"RemoveScre\",\"ReferenceName\":\"Trigger_C36393D6\",\"OverrideReferenceName\":null,\"Hidden\":false,\"ShortGuid\":\"C36393D6\"}"
         }
     ]
 }

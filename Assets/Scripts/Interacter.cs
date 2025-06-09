@@ -17,6 +17,8 @@ public class Interacter : MonoBehaviour
     }
     void OnInteract()
     {
+        doneInteract = true;
+        
         Sort();
 
         if (localDistantSortedObjects.Count > 0 && Vector3.Distance(localDistantSortedObjects[0].transform.position, transform.position) < reachDistance)

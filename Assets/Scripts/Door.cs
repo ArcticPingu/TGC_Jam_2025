@@ -19,7 +19,12 @@ public class Door : Interacteble
 
     public bool hasScrewdriver()
     {
-        return InventoryManager.Instance.hasItem("screwdriver");
+        return InventoryManager.Instance.hasItem("screwdriver", false);
+    }
+
+    public void RemoveScrewdriver()
+    {
+        InventoryManager.Instance.hasItem("screwdriver", true);
     }
 
     public bool OtherSide()

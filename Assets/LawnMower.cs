@@ -6,8 +6,14 @@ public class LawnMower : Interacteble
     public GameObject worldObject;
     public bool HasWire()
     {
-        return InventoryManager.Instance.hasItem("wire");
+        return InventoryManager.Instance.hasItem("wire", false);
     }
+
+    public void RemoveWire()
+    {
+        InventoryManager.Instance.hasItem("wire", true);
+    }
+    
 
     public void PickUp()
     {

@@ -6,7 +6,7 @@ public class InteractionTutorial : MonoBehaviour
     {
         if (Interacter.doneInteract)
         {
-            transform.position -= new Vector3(Time.deltaTime * 320, 0, 0);
+            transform.position -= new Vector3(Time.deltaTime * 520, 0, 0);
 
             if (transform.position.x < -500)
             {
@@ -15,7 +15,7 @@ public class InteractionTutorial : MonoBehaviour
         }
         else if(transform.position.x < 34)
         {
-            transform.position += new Vector3(Time.deltaTime * 320, 0, 0);
+            transform.position += new Vector3(Time.deltaTime * 520, 0, 0);
         }
     }
 }

@@ -818,8 +818,8 @@
             "DrawState": {
                 "Position": {
                     "serializedVersion": "2",
-                    "x": 6222.0,
-                    "y": 1243.9998779296875,
+                    "x": 6305.00048828125,
+                    "y": 1270.0,
                     "width": 79.0,
                     "height": 42.0
                 },
@@ -1702,6 +1702,24 @@
             "PortData": [
                 "a9ff20af-20df-4dba-92fd-58361a08af9c"
             ]
+        },
+        {
+            "GUID": "c21309eb-bedf-4a93-967f-5ebb252f22f1",
+            "Type": "DialogueGraph.PropertyNode",
+            "DrawState": {
+                "Position": {
+                    "serializedVersion": "2",
+                    "x": 6265.00048828125,
+                    "y": 1221.0,
+                    "width": 117.0,
+                    "height": 42.0
+                },
+                "Expanded": true
+            },
+            "NodeData": "{\"propertyGuid\":\"2af63f35-9b09-4405-9ac7-73f1d1bc9afc\"}",
+            "PortData": [
+                "3227b714-dac5-4879-9555-42076bd25815"
+            ]
         }
     ],
     "edges": [
@@ -2432,6 +2450,14 @@
             "OutputPort": "a9ff20af-20df-4dba-92fd-58361a08af9c",
             "InputCapacity": 0,
             "OutputCapacity": 1
+        },
+        {
+            "Input": "c21309eb-bedf-4a93-967f-5ebb252f22f1",
+            "Output": "1e127ff3-3b72-4237-9279-eeb900e09303",
+            "InputPort": "3227b714-dac5-4879-9555-42076bd25815",
+            "OutputPort": "39c984d6-e138-4be0-baaa-a641377cb45e",
+            "InputCapacity": 1,
+            "OutputCapacity": 1
         }
     ],
     "serializedProperties": [
@@ -2510,6 +2536,10 @@
         {
             "Type": "DialogueGraph.TriggerProperty",
             "Data": "{\"$type\":\"DialogueGraph.TriggerProperty, DialogueGraph.Editor\",\"GUID\":\"926be164-0d7e-4bd1-95e7-adfe27f04c66\",\"Type\":0,\"DisplayName\":\"SetBackOff\",\"ReferenceName\":\"Trigger_E7249760\",\"OverrideReferenceName\":null,\"Hidden\":false,\"ShortGuid\":\"E7249760\"}"
+        },
+        {
+            "Type": "DialogueGraph.TriggerProperty",
+            "Data": "{\"$type\":\"DialogueGraph.TriggerProperty, DialogueGraph.Editor\",\"GUID\":\"2af63f35-9b09-4405-9ac7-73f1d1bc9afc\",\"Type\":0,\"DisplayName\":\"RemoveCards\",\"ReferenceName\":\"Trigger_854B535E\",\"OverrideReferenceName\":null,\"Hidden\":false,\"ShortGuid\":\"854B535E\"}"
         }
     ]
 }

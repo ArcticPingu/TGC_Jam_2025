@@ -22,6 +22,6 @@ public class GartenGate : Interacteble
 
     public bool HasMower()
     {
-        return InventoryManager.Instance.hasItem("mower");
+        return InventoryManager.Instance.hasItem("mower", false);
     }
 }

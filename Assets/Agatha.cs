@@ -4,8 +4,9 @@ public class Agatha : Interacteble
 {
     public bool HasWire()
     {
-        return InventoryManager.Instance.hasItem("wire");
+        return InventoryManager.Instance.hasItem("wire", false);
     }
+
 
     public void Generosity()
     {

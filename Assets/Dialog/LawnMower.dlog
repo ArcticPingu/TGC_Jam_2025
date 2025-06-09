@@ -191,10 +191,10 @@
             "DrawState": {
                 "Position": {
                     "serializedVersion": "2",
-                    "x": 961.0,
-                    "y": 519.0,
+                    "x": 929.9999389648438,
+                    "y": 578.0,
                     "width": 77.0,
-                    "height": 42.0
+                    "height": 41.99993896484375
                 },
                 "Expanded": true
             },
@@ -370,6 +370,24 @@
             "PortData": [
                 "0fdb6452-ad9c-4ea7-a454-58012ea92358"
             ]
+        },
+        {
+            "GUID": "02d09c3a-30b7-4526-b478-bf7e14816c9f",
+            "Type": "DialogueGraph.PropertyNode",
+            "DrawState": {
+                "Position": {
+                    "serializedVersion": "2",
+                    "x": 947.9999389648438,
+                    "y": 513.0,
+                    "width": 108.99993896484375,
+                    "height": 41.99993896484375
+                },
+                "Expanded": true
+            },
+            "NodeData": "{\"propertyGuid\":\"d6f519f8-06c6-438a-bd5a-b4705cf671e8\"}",
+            "PortData": [
+                "8928bf96-046a-417d-8cac-cff090fe5818"
+            ]
         }
     ],
     "edges": [
@@ -532,6 +550,14 @@
             "OutputPort": "a156ac5b-fa14-4f3e-8637-bd8d41486eee",
             "InputCapacity": 1,
             "OutputCapacity": 1
+        },
+        {
+            "Input": "02d09c3a-30b7-4526-b478-bf7e14816c9f",
+            "Output": "94b63567-79cf-452e-90dc-82bc3f670110",
+            "InputPort": "8928bf96-046a-417d-8cac-cff090fe5818",
+            "OutputPort": "0a36f39b-c064-4b93-a085-1973d59a18c9",
+            "InputCapacity": 1,
+            "OutputCapacity": 1
         }
     ],
     "serializedProperties": [
@@ -566,6 +592,10 @@
         {
             "Type": "DialogueGraph.CheckProperty",
             "Data": "{\"$type\":\"DialogueGraph.CheckProperty, DialogueGraph.Editor\",\"GUID\":\"5655fa4d-048c-4def-ad47-0bed9cf71633\",\"Type\":1,\"DisplayName\":\"seenBrokenWire\",\"ReferenceName\":\"Check_F40159C5\",\"OverrideReferenceName\":null,\"Hidden\":false,\"ShortGuid\":\"F40159C5\"}"
+        },
+        {
+            "Type": "DialogueGraph.TriggerProperty",
+            "Data": "{\"$type\":\"DialogueGraph.TriggerProperty, DialogueGraph.Editor\",\"GUID\":\"d6f519f8-06c6-438a-bd5a-b4705cf671e8\",\"Type\":0,\"DisplayName\":\"RemoveWire\",\"ReferenceName\":\"Trigger_75DB41C7\",\"OverrideReferenceName\":null,\"Hidden\":false,\"ShortGuid\":\"75DB41C7\"}"
         }
     ]
 }

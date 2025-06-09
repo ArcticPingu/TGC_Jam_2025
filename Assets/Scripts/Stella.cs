@@ -16,12 +16,22 @@ public class Stella : Interacteble
 
     public bool getHasDog()
     {
-        return InventoryManager.Instance.hasItem("dog");
+        return InventoryManager.Instance.hasItem("dog", false);
     }
     public bool hasBerry()
     {
-        return InventoryManager.Instance.hasItem("berry");
+        return InventoryManager.Instance.hasItem("berry", false);
     }
+
+    public void RemoveDog()
+    {
+        InventoryManager.Instance.hasItem("dog", true);
+    }
+    public void RemoveBerry()
+    {
+        InventoryManager.Instance.hasItem("berry", true);
+    }
+
     public bool doorClosed()
     {
         return InventoryManager.Instance.flags.Contains("closeddoor");

@@ -5,7 +5,12 @@ public class Manuell : Interacteble
     public ushort correct;
     public bool HasCard()
     {
-        return InventoryManager.Instance.hasItem("card");
+        return InventoryManager.Instance.hasItem("card", false);
+    }
+
+    public void RemoveCard()
+    {
+        InventoryManager.Instance.hasItem("card", true);
     }
 
     public void Generosity()

@@ -10,7 +10,7 @@ public class InventoryManager : MonoBehaviour
     public List<string> flags = new();
     public int n;
 
-    public bool hasItem(string item)
+    public bool hasItem(string item, bool remove)
     {
         bool hasItem = false;
 
@@ -18,8 +18,12 @@ public class InventoryManager : MonoBehaviour
         {
             if (inventory[i] != null && inventory[i].id == item)
             {
-                inventory[i] = null;
                 hasItem = true;
+
+                if (remove)
+                {
+                    inventory[i] = null;
+                }
             }
         }
 

@@ -24,12 +24,18 @@ public class Dog : Interacteble
 
     public bool hasBone()
     {
-        return InventoryManager.Instance.hasItem("bone");
+        return InventoryManager.Instance.hasItem("bone", false);
     }
+    
+    public void RemoveBone()
+    {
+        InventoryManager.Instance.hasItem("bone", true);
+    }
+
 
     public void AcceptedRidle()
     {
         Stella.optmial = false;
-         Debug.LogWarning("NotOptimal");
+        Debug.LogWarning("NotOptimal");
     }
 }

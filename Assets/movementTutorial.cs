@@ -7,13 +7,22 @@ public class movementTutorial : MonoBehaviour
     {
         if (PlayerController.doneWalk)
         {
-            transform.position -= new Vector3(Time.deltaTime * 320, 0, 0);
+            transform.position -= new Vector3(Time.deltaTime * 520, 0, 0);
 
-            if (transform.position.x < -500)
+            if (transform.position.x < -1000)
             {
                 Stage2.SetActive(true);
                 gameObject.SetActive(false);
             }
+        }
+    }
+
+    void Awake()
+    {
+        if (PlayerController.doneWalk)
+        {
+            Stage2.SetActive(true);
+            gameObject.SetActive(false);
         }
     }
 }

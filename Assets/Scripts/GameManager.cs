@@ -68,7 +68,7 @@ public class GameManager : MonoBehaviour
             {
                 item.interactable = false;
             }
-
+            
             FindAnyObjectByType<StoryCanvas>().SadEnd();
         }
     }
@@ -77,6 +77,11 @@ public class GameManager : MonoBehaviour
     {
         generosityCounter++;
         FindAnyObjectByType<StoryCanvas>().Generosity(generosityCounter);
+
+        if (generosityCounter == 3)
+        {
+            SpendPoint(999);
+        }
     }
 
     public void Credits()
