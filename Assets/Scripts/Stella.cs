@@ -11,6 +11,9 @@ public class Stella : Interacteble
     public bool annoyed;
     public bool codeOnce;
     public bool needsCode;
+    public static bool optmial;
+
+
     public bool getHasDog()
     {
         return InventoryManager.Instance.hasItem("dog");
@@ -81,5 +84,27 @@ public class Stella : Interacteble
             return false;
         }
         return true;
+    }
+
+    public bool IsOptimal()
+    {
+        return optmial;
+    }
+
+    public void UnOptimal()
+    {
+        optmial = false;
+        Debug.LogWarning("NotOptimal");
+    }
+
+    public void End()
+    {
+        GameManager.endCounter += 1;
+        interactable = false;
+
+        if (GameManager.endCounter == 4)
+        {
+            GameManager.Instance.Credits();
+        }
     }
 }

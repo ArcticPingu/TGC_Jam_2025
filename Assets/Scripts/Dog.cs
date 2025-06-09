@@ -1,3 +1,4 @@
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class Dog : Interacteble
@@ -24,5 +25,11 @@ public class Dog : Interacteble
     public bool hasBone()
     {
         return InventoryManager.Instance.hasItem("bone");
+    }
+
+    public void AcceptedRidle()
+    {
+        Stella.optmial = false;
+         Debug.LogWarning("NotOptimal");
     }
 }

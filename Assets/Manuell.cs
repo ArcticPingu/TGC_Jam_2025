@@ -21,7 +21,7 @@ public class Manuell : Interacteble
 
     public bool isCorrect()
     {
-        return correct == 4;
+        return correct == 5;
     }
 
         public void Reset()

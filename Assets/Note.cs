@@ -10,6 +10,9 @@ public class Note : Interacteble
         ArchiveManager.Instance.Add(item);
         note.SetActive(false);
         interactable = false;
+
+        Stella.optmial = false;
+        Debug.LogWarning("NotOptimal");
     }
 
     public bool Is1()

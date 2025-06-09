@@ -8,6 +8,9 @@ public class Interacter : MonoBehaviour
     public float reachDistance = 2.5f;
     public Interacteble curentinteracteble;
 
+    public static bool doneInteract;
+
+
     void Start()
     {
         InvokeRepeating(nameof(UpdateVisibility), 1, 0.1f);
@@ -55,7 +58,7 @@ public class Interacter : MonoBehaviour
     {
         localDistantSortedObjects.Sort((a, b) => (a.transform.position - transform.position).sqrMagnitude.CompareTo((b.transform.position - transform.position).sqrMagnitude));
     }
-    
+
     public void ForceInteract(Interacteble interacteble)
     {
         curentinteracteble = interacteble;
