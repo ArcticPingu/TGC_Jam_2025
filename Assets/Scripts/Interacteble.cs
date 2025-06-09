@@ -21,7 +21,7 @@ public abstract class Interacteble : MonoBehaviour
     protected TMP_Text NpcText;
     protected TMP_Text NpcName;
     protected TMP_Text CodeText;
-    protected Image npcImage;
+    public Image npcImage;
 
     public PlayerController talker;
 
@@ -29,7 +29,7 @@ public abstract class Interacteble : MonoBehaviour
     public ShowField showPlayer;
     protected bool isPlayerChoosing;
     protected bool shouldShowText;
-    protected bool showingText;
+    public bool showingText;
     protected string textToShow;
     [SerializeField] private bool skipPlayerText;
 
@@ -80,6 +80,9 @@ public abstract class Interacteble : MonoBehaviour
         NpcText = DialogRefHolder.Instance.NpcText;
         NpcName = DialogRefHolder.Instance.NpcName;
         npcImage = DialogRefHolder.Instance.npcImage;
+        Debug.Log(DialogRefHolder.Instance.npcImage);
+        Debug.Log(npcImage);
+        Debug.Log(name);
         CodeContainer = DialogRefHolder.Instance.CodeContainer;
         CodeText = DialogRefHolder.Instance.CodeText;
     }
@@ -231,7 +234,6 @@ public abstract class Interacteble : MonoBehaviour
 
                 if (currentActor.Name == "info")
                 {
-                    npcImage.sprite = null;
                     NpcText.font = container.font;
                     shouldShowText = true;
                     NpcName.text = "";
@@ -241,6 +243,7 @@ public abstract class Interacteble : MonoBehaviour
                 }
                 else
                 {
+                    Debug.Log(npcImage);
                     npcImage.transform.parent.gameObject.SetActive(true);
                     NpcContainer.transform.GetChild(1).GetComponent<Image>().sprite = DialogRefHolder.Instance.npc;
 

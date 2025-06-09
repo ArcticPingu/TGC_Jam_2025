@@ -16,7 +16,7 @@ public class Agatha : Interacteble
     public void ManuelSolve()
     {
         FindAnyObjectByType<GartenOuzle>().Clean();
-        
+        InventoryManager.Instance.flags.Add("manuelsolve");
         InventoryManager.Instance.flags.Add("mowerrepaired");
     }
 }

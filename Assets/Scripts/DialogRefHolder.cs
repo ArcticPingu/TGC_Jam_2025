@@ -12,7 +12,7 @@ public class DialogRefHolder : MonoBehaviour
     public TMP_Text NpcName;
     public static DialogRefHolder Instance;
     public Image npcImage;
-
+ 
     public GameObject CodeContainer;
 
     public TMP_Text CodeText;

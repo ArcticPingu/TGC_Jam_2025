@@ -13,6 +13,7 @@ public class GameManager : MonoBehaviour
     public bool skipIntro;
 
     public int generosityCounter;
+    public static int endCounter;
 
     void Awake()
     {
@@ -26,6 +27,8 @@ public class GameManager : MonoBehaviour
 
         keys.Add("default");
         BerryBush.index = 0;
+        Stella.optmial = true;
+        endCounter = 0;
 
         if (skipIntro)
             FindAnyObjectByType<StoryCanvas>().SkipIntro();
@@ -74,5 +77,10 @@ public class GameManager : MonoBehaviour
     {
         generosityCounter++;
         FindAnyObjectByType<StoryCanvas>().Generosity(generosityCounter);
+    }
+
+    public void Credits()
+    {
+        FindAnyObjectByType<SceneTransition>().StartFade();
     }
 }

@@ -14,6 +14,7 @@ public class StoryCanvas : MonoBehaviour
 
     public static bool first = true;
     public TextBoxManager textBox;
+    public bool day2;
 
     public void Outro()
     {
@@ -22,7 +23,7 @@ public class StoryCanvas : MonoBehaviour
 
     void Awake()
     {
-        if (!first)
+        if (!first && !day2)
         {
             textBox.textToDisplay.Add("again..");
         }

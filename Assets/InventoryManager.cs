@@ -18,6 +18,7 @@ public class InventoryManager : MonoBehaviour
         {
             if (inventory[i] != null && inventory[i].id == item)
             {
+                inventory[i] = null;
                 hasItem = true;
             }
         }

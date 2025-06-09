@@ -27,9 +27,11 @@ public class PlayerController : MonoBehaviour
     }
 
     // Called only when the stick/keys change
+    public static bool doneWalk;
     void OnMove(InputValue value)
     {
         moveInput = value.Get<Vector2>();
+        doneWalk = true;
 
     }
 
