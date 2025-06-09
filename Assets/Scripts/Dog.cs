@@ -7,7 +7,7 @@ public class Dog : Interacteble
     public GameObject dog;
     public bool Puzzle()
     {
-        return InventoryManager.Instance.flags.Contains("puzle1");
+        return InventoryManager.Instance.hasItem("berry", false);
     }
 
     public void TalkingDog()

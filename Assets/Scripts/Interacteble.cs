@@ -247,6 +247,9 @@ public abstract class Interacteble : MonoBehaviour
                     npcImage.transform.parent.gameObject.SetActive(true);
                     NpcContainer.transform.GetChild(1).GetComponent<Image>().sprite = DialogRefHolder.Instance.npc;
 
+                    if (emotionIndex >= container.sprites.Length)
+                        emotionIndex = 0;
+
                     npcImage.sprite = container.sprites[emotionIndex];
                     NpcText.font = container.font;
                     shouldShowText = true;

@@ -35,6 +35,13 @@ public class BerryBush : Interacteble
 
     public bool allDone()
     {
-        return id == 7 && index == 2;
+        bool result = id == 7 && index == 2;
+
+        if (result)
+        {
+            InventoryManager.Instance.flags.Add("puzle1");
+        }
+
+        return result;
     }
 }
