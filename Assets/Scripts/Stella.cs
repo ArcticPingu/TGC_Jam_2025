@@ -72,7 +72,7 @@ public class Stella : Interacteble
 
     public void Generosity()
     {
-        interactable = false;
+        SetInteracteble(false);
         GameManager.Instance.Generosity();
     }
 
@@ -110,7 +110,7 @@ public class Stella : Interacteble
     public void End()
     {
         GameManager.endCounter += 1;
-        interactable = false;
+        SetInteracteble(false);
 
         if (GameManager.endCounter == 4)
         {

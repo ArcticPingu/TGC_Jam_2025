@@ -34,7 +34,7 @@ public abstract class Interacteble : MonoBehaviour
     [SerializeField] private bool skipPlayerText;
 
     public string CostId;
-    public bool interactable;
+    private bool interactable;
     public int emotionIndex = 0;
 
     public void SetEmotionIndex(int index)
@@ -51,10 +51,7 @@ public abstract class Interacteble : MonoBehaviour
     }
     void Awake()
     {
-        foreach (var item in FindObjectsByType<Interacter>(FindObjectsSortMode.None))
-        {
-            item.localDistantSortedObjects.Add(this);
-        }
+        AddToList();
 
         interactable = true;
         isInConversation = false;
@@ -89,9 +86,22 @@ public abstract class Interacteble : MonoBehaviour
 
     void OnDestroy()
     {
+        RemoveFromList();
+    }
+
+    private void RemoveFromList()
+    {
         foreach (var item in FindObjectsByType<Interacter>(FindObjectsSortMode.None))
         {
             item.localDistantSortedObjects.Remove(this);
+        }
+    }
+
+    private void AddToList()
+    {
+        foreach (var item in FindObjectsByType<Interacter>(FindObjectsSortMode.None))
+        {
+            item.localDistantSortedObjects.Add(this);
         }
     }
 
@@ -479,6 +489,21 @@ public abstract class Interacteble : MonoBehaviour
     public void SetCodeBack(bool on)
     {
         CodeText.transform.GetChild(0).gameObject.SetActive(on);
+    }
+
+    public void SetInteracteble(bool enabled)
+    {
+        interactable = enabled;
+
+        if (!interactable)
+        {
+            RemoveFromList();
+            Hide();
+        }
+        else
+        {
+            AddToList();
+        }
     }
 
 }

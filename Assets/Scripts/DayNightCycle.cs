@@ -28,6 +28,7 @@ public class DayNightCycle : MonoBehaviour
     private void Awake()
     {
         Instance = this;
+        InvokeRepeating(nameof(CheckEvents), 1, 1);
     }
 
     void Update()
@@ -55,5 +56,19 @@ public class DayNightCycle : MonoBehaviour
 
         // Shader
         Shader.SetGlobalVector("_Sun", sun.transform.forward);
+    }
+
+    void CheckEvents()
+    {
+        if (time > 0.3 && time < 0.7)
+        {
+            if(StreetLamp.GetStatus())
+                StreetLamp.ChangeStatus(false);
+        }
+        else
+        {
+            if(!StreetLamp.GetStatus())
+                StreetLamp.ChangeStatus(true);
+        }
     }
 }

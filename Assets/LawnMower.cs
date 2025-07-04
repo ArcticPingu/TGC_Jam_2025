@@ -18,7 +18,7 @@ public class LawnMower : Interacteble
     public void PickUp()
     {
         InventoryManager.Instance.AddItem(item);
-        interactable = false;
+        SetInteracteble(false);
         worldObject.SetActive(false);
     }
 }

@@ -19,7 +19,7 @@ public class Dog : Interacteble
     {
         InventoryManager.Instance.AddItem(item);
         dog.SetActive(false);
-        interactable = false;
+        SetInteracteble(false);
     }
 
     public bool hasBone()

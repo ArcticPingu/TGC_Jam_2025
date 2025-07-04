@@ -10,7 +10,7 @@ public class Agatha : Interacteble
 
     public void Generosity()
     {
-        interactable = false;
+        SetInteracteble(false);
         GameManager.Instance.Generosity();
     }
 

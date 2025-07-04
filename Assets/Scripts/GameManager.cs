@@ -66,7 +66,7 @@ public class GameManager : MonoBehaviour
         {
             foreach (var item in FindObjectsByType<Interacteble>(FindObjectsSortMode.None))
             {
-                item.interactable = false;
+                item.SetInteracteble(false);
             }
             
             FindAnyObjectByType<StoryCanvas>().SadEnd();

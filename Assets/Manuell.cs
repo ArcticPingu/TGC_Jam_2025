@@ -15,7 +15,7 @@ public class Manuell : Interacteble
 
     public void Generosity()
     {
-        interactable = false;
+        SetInteracteble(false);
         GameManager.Instance.Generosity();
     }
 

@@ -8,6 +8,7 @@ public class Door : Interacteble
     {
         closed = true;
         FindAnyObjectByType<GateObject>().Close();
+        FindAnyObjectByType<GateObject>().GetComponent<AudioSource>().Play();
         InventoryManager.Instance.flags.Add("closeddoor");
     }
 

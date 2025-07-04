@@ -1,6 +1,4 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
+
 using UnityEngine;
 
 using UnityEngine.InputSystem;
@@ -18,6 +16,9 @@ public class PlayerController : MonoBehaviour
     private int count;
     public Vector3 forceMove;
     public bool mowing;
+    public float minLightDistance = 1.5f;
+    public float maxLightDistance = 4f;
+    public SpriteRenderer spriteRenderer;
 
 
     void Awake()
@@ -38,7 +39,7 @@ public class PlayerController : MonoBehaviour
     void FixedUpdate()
     {
         Vector3 moveDirection = new Vector3(moveInput.x, 0, moveInput.y).normalized;
-        Vector3 desiredVelocity = moveDirection * (mowing ? 2: speed);
+        Vector3 desiredVelocity = moveDirection * (mowing ? 2 : speed);
 
         if (!canMove)
         {
@@ -71,12 +72,11 @@ public class PlayerController : MonoBehaviour
 
         Shader.SetGlobalVector("_PlayerPos", pos);
         Shader.SetGlobalVector("_test", transform.position);
-
     }
 
     public void PlayStep()
     {
-        source.PlayOneShot(footsteps[count++%footsteps.Length]);
+        source.PlayOneShot(footsteps[count++ % footsteps.Length]);
     }
 
 
