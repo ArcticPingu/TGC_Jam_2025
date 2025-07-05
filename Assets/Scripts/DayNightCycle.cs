@@ -60,7 +60,7 @@ public class DayNightCycle : MonoBehaviour
 
     void CheckEvents()
     {
-        if (time > 0.3 && time < 0.7)
+        if (time > 0.3)
         {
             if(StreetLamp.GetStatus())
                 StreetLamp.ChangeStatus(false);

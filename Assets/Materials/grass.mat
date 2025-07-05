@@ -132,9 +132,9 @@ Material:
     - _BaseColor: {r: 1, g: 1, b: 1, a: 1}
     - _Color: {r: 1, g: 1, b: 1, a: 1}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
-    - _Offset: {r: 0.63, g: 0.03, b: 0, a: 0}
+    - _Offset: {r: 0.3469444, g: 0.82633257, b: 0, a: 0}
     - _SpecColor: {r: 0.19999996, g: 0.19999996, b: 0.19999996, a: 1}
-    - _Tiling: {r: 0.08, g: 0.08, b: 0, a: 0}
+    - _Tiling: {r: 0.05810547, g: 0.06792453, b: 0, a: 0}
     - _Tint: {r: 1, g: 1, b: 1, a: 1}
     - _wind_dir: {r: 0.5, g: 0.05, b: 0.5, a: 0}
   m_BuildTextureStacks: []
