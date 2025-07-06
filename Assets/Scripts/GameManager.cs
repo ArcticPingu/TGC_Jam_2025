@@ -32,6 +32,8 @@ public class GameManager : MonoBehaviour
 
         if (skipIntro)
             FindAnyObjectByType<StoryCanvas>().SkipIntro();
+
+        FindAnyObjectByType<EditableGrassSpawner>().LoadGrassData();
     }
 
 
