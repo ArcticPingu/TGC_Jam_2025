@@ -31,7 +31,7 @@ public class GrassDataAsset : ScriptableObject
         }
     }
 
-    public void LoadData(Transform parent, bool useNonSerialized)
+    public void LoadData(Transform parent)
     {
         if (parent == null) return;
 
@@ -50,11 +50,7 @@ public class GrassDataAsset : ScriptableObject
             instance.transform.position = data.position;
             instance.transform.rotation = data.rotation;
             instance.transform.localScale = data.scale;
-
-            if (useNonSerialized)
-            {
-                instance.hideFlags = HideFlags.DontSave;
-            }
+            instance.hideFlags = HideFlags.DontSave;
         }
     }
 }

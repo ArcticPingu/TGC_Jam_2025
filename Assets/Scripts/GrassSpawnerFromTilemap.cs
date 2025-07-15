@@ -55,9 +55,6 @@ public class EditableGrassSpawner : MonoBehaviour
     public TileBase lightGrassTile;
 
     [Header("Scene Management")]
-    [Tooltip("Create non-serialized objects for editing (won't save to scene)")]
-    public bool useNonSerializedObjects = true;
-
     [Tooltip("Save/Load grass data to ScriptableObject")]
     public GrassDataAsset grassDataAsset;
 
@@ -112,7 +109,7 @@ public class EditableGrassSpawner : MonoBehaviour
         }
 
         ClearAllGrass();
-        grassDataAsset.LoadData(parent, useNonSerializedObjects);
+        grassDataAsset.LoadData(parent);
         Debug.Log("Grass data loaded from asset!");
     }
 
@@ -166,7 +163,7 @@ public class EditableGrassSpawner : MonoBehaviour
                 var tile = tilemap.GetTile(cell);
                 if (tile != grassTile && tile != lightGrassTile) continue;
 
-                int cGrassCount = (int)(amountPerTile * (tile == lightGrassTile ? 0.3f : 1));
+                int cGrassCount = (int) (tile == lightGrassTile ? 1 : amountPerTile);
 
                 // Spawn grass
                 for (int i = 0; i < cGrassCount; i++)
@@ -232,22 +229,12 @@ public class EditableGrassSpawner : MonoBehaviour
             grass = Instantiate(prefab, parent);
 #endif
 
-        if (useNonSerializedObjects)
-        {
-            // Make object non-serialized so it won't save to scene
-            grass.hideFlags = HideFlags.DontSave;
-        }
-
-
+        grass.hideFlags = HideFlags.DontSave;
         grass.transform.position = position;
         grass.transform.rotation = Quaternion.identity;
 
 #if UNITY_EDITOR
-        if (useNonSerializedObjects)
-        {
-            // Make object non-serialized so it won't save to scene
-            grass.hideFlags = HideFlags.DontSave;
-        }
+        grass.hideFlags = HideFlags.DontSave;
 #endif
 
         return grass;
@@ -269,15 +256,11 @@ public class EditableGrassSpawner : MonoBehaviour
             if (GUILayout.Button("Spawn Grass & Flowers"))
             {
                 spawner.StartSpawnGrass();
-                if (!spawner.useNonSerializedObjects)
-                    EditorSceneManager.MarkSceneDirty(spawner.gameObject.scene);
             }
 
             if (GUILayout.Button("Clear All Grass"))
             {
                 spawner.ClearAllGrass();
-                if (!spawner.useNonSerializedObjects)
-                    EditorSceneManager.MarkSceneDirty(spawner.gameObject.scene);
             }
 
             EditorGUILayout.Space();
@@ -293,35 +276,8 @@ public class EditableGrassSpawner : MonoBehaviour
                 spawner.LoadGrassData();
             }
 
-            if (GUILayout.Button("Convert to Serialized Objects"))
-            {
-                ConvertToSerializedObjects(spawner);
-            }
-
             EditorGUILayout.Space();
-
-            if (spawner.useNonSerializedObjects)
-            {
-                EditorGUILayout.HelpBox("Non-serialized mode: Objects won't save to scene. Use 'Save Grass Data' to persist your changes.", MessageType.Info);
-            }
-            else
-            {
-                EditorGUILayout.HelpBox("Serialized mode: Objects will save to scene file. May cause large file sizes with many objects.", MessageType.Warning);
-            }
-        }
-
-        private void ConvertToSerializedObjects(EditableGrassSpawner spawner)
-        {
-            if (spawner.parent == null) return;
-
-            foreach (Transform child in spawner.parent)
-            {
-                child.gameObject.hideFlags = HideFlags.None;
-            }
-
-            spawner.useNonSerializedObjects = false;
-            EditorSceneManager.MarkSceneDirty(spawner.gameObject.scene);
-            Debug.Log("Converted grass objects to serialized (will save to scene)");
+            EditorGUILayout.HelpBox("Non-serialized mode: Objects won't save to scene. Use 'Save Grass Data' to persist your changes.", MessageType.Info);
         }
     }
 #endif
